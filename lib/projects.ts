@@ -109,6 +109,3 @@ export const categories = [
   "WEB",
 ];
 
-export function getProjectBySlug(slug: string): ProjectData | undefined {
-  return projects.find((p) => p.slug === slug);
-}

@@ -18,6 +18,7 @@ export function ProjektePage() {
       <PageHero
         title="PROJEKTE"
         subtitle="Geschichten, die bewegen. Ergebnisse, die uberzeugen."
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Projekte" }]}
       />
 
       <section className="py-8 px-4 md:px-8 max-w-7xl mx-auto">

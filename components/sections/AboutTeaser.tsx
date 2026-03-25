@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { FadeIn } from "@/components/animations/FadeIn";
 import { ParallaxSection } from "@/components/animations/ParallaxSection";
@@ -14,11 +15,13 @@ export function AboutTeaser() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         <ParallaxSection offset={30}>
           <div className="relative">
-            <div className="aspect-[3/4] bg-[#111] rounded-2xl overflow-hidden">
-              <img
+            <div className="aspect-[3/4] bg-[#111] rounded-2xl overflow-hidden relative">
+              <Image
                 src="/images/marc-baumann.avif"
                 alt="Marc Baumann — Inhaber von b-emotion"
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 40vw"
               />
             </div>
             {/* Accent corner */}

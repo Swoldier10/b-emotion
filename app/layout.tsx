@@ -25,6 +25,10 @@ export const metadata: Metadata = {
     canonical: "/",
     languages: { "de-CH": "/" },
   },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
   openGraph: {
     title: "b-emotion | Content, Grafik & Digital fur KMU",
     description:
@@ -33,12 +37,21 @@ export const metadata: Metadata = {
     siteName: "b-emotion",
     locale: "de_CH",
     type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "b-emotion — Content, Grafik & Digital fur KMU in der Schweiz",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "b-emotion | Content, Grafik & Digital fur KMU",
     description:
       "Grafik & Design, Foto & Video, Social Media, Marketing-Beratung — alles aus einer Hand. Auch im Abo.",
+    images: ["/og-image.png"],
   },
   robots: { index: true, follow: true },
 };

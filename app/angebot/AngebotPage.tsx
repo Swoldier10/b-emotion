@@ -12,6 +12,7 @@ export function AngebotPage() {
       <PageHero
         title="ANGEBOT"
         subtitle="Massgeschneiderte Losungen fur Ihr Marketing."
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Angebot" }]}
       />
       <ServicesGrid />
       <FadeIn className="text-center pb-20">

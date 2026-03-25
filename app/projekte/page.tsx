@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Projekte | b-emotion — Ausgewahlte Arbeiten",
   description:
     "Entdecken Sie ausgewahlte Projekte von b-emotion: Grafik & Design, Foto, Video, Social Media und Webdesign fur Schweizer KMU.",
+  alternates: { canonical: "/projekte" },
   openGraph: {
     title: "Projekte | b-emotion — Ausgewahlte Arbeiten",
     description:

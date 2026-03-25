@@ -97,6 +97,7 @@ export function AboPage() {
         title="ALLES IM ABO"
         subtitle="FLEXIBEL & SKALIERBAR."
         titleClassName="!text-primary"
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Abo" }]}
       />
 
       <FadeIn className="max-w-3xl mx-auto px-4 md:px-8 -mt-8 mb-16">

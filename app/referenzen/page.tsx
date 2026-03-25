@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Referenzen | b-emotion — Kundenstimmen",
   description:
     "Was Kunden uber b-emotion sagen. Erfahrungsberichte und Referenzen von Schweizer KMU, die auf b-emotion vertrauen.",
+  alternates: { canonical: "/referenzen" },
   openGraph: {
     title: "Referenzen | b-emotion — Kundenstimmen",
     description:

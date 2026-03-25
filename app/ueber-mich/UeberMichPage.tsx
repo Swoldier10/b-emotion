@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { PageHero } from "@/components/ui/PageHero";
 import { FadeIn } from "@/components/animations/FadeIn";
 import { ParallaxSection } from "@/components/animations/ParallaxSection";
@@ -55,17 +56,22 @@ const timeline = [
 export function UeberMichPage() {
   return (
     <>
-      <PageHero title="UBER MICH" />
+      <PageHero
+        title="UBER MICH"
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Uber mich" }]}
+      />
 
       {/* Personal Introduction */}
       <section className="py-16 md:py-24 px-4 md:px-8 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <ParallaxSection offset={30}>
-            <div className="aspect-[3/4] bg-dark rounded-xl overflow-hidden">
-              <img
+            <div className="aspect-[3/4] bg-dark rounded-xl overflow-hidden relative">
+              <Image
                 src="/images/marc-baumann.avif"
                 alt="Marc Baumann — Inhaber von b-emotion"
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 40vw"
               />
             </div>
           </ParallaxSection>

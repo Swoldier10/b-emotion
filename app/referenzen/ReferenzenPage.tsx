@@ -42,6 +42,7 @@ export function ReferenzenPage() {
     <>
       <PageHero
         title="REFERENZEN"
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Referenzen" }]}
         subtitle="Was meine Kunden sagen."
       />
 
