@@ -25,20 +25,20 @@ export function PageHero({
   titleClassName = "",
 }: PageHeroProps) {
   const heights = {
-    sm: "min-h-[40vh]",
-    md: "min-h-[50vh]",
-    lg: "min-h-[60vh]",
+    sm: "md:min-h-[35vh]",
+    md: "md:min-h-[40vh]",
+    lg: "md:min-h-[50vh]",
   };
 
   return (
     <section
-      className={`${heights[height]} flex flex-col justify-center px-4 md:px-8 pt-24 pb-12`}
+      className={`${heights[height]} flex flex-col justify-end px-4 md:px-8 pt-24 md:pt-32 pb-8 md:pb-12`}
     >
       <div className="max-w-7xl mx-auto w-full">
         {breadcrumbs && (
           <FadeIn>
             <nav
-              className="mb-6 text-xs uppercase tracking-wide text-text-secondary"
+              className="mb-4 md:mb-6 text-[10px] md:text-xs uppercase tracking-wide text-text-secondary"
               aria-label="Breadcrumb"
             >
               <ol className="flex items-center gap-2">
@@ -64,11 +64,11 @@ export function PageHero({
         <TextReveal
           text={title}
           as="h1"
-          className={`text-4xl md:text-6xl lg:text-7xl font-black text-white ${titleClassName}`}
+          className={`text-3xl md:text-5xl lg:text-7xl font-black text-white ${titleClassName}`}
         />
         {subtitle && (
           <FadeIn delay={0.3}>
-            <p className="mt-4 md:mt-6 text-lg md:text-xl text-body-text max-w-2xl">
+            <p className="mt-3 md:mt-6 text-base md:text-xl text-body-text max-w-2xl">
               {subtitle}
             </p>
           </FadeIn>

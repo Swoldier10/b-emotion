@@ -8,7 +8,7 @@ import { ParallaxSection } from "@/components/animations/ParallaxSection";
 
 export function AboutTeaser() {
   return (
-    <section className="relative py-24 md:py-40 px-4 md:px-8 max-w-7xl mx-auto overflow-hidden">
+    <section className="relative py-16 md:py-40 px-4 md:px-8 max-w-7xl mx-auto overflow-hidden">
       {/* Teal ambient glow behind image area */}
       <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-teal/[0.04] rounded-full blur-[150px] pointer-events-none" />
       <SectionHeading title="UBER MICH" align="left" />

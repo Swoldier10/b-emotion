@@ -50,7 +50,7 @@ export function Testimonials() {
   }, [next]);
 
   return (
-    <section className="relative -my-32 py-60 md:-my-40 md:py-80 overflow-hidden">
+    <section className="relative -my-16 py-32 md:-my-40 md:py-80 overflow-hidden">
       {/* Gradient: dark → teal-tinted → dark — oversized to bleed into adjacent sections */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-[#0c1a1f] to-[#050505] pointer-events-none" />
       {/* Teal ambient glows */}

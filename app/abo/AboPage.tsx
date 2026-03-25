@@ -100,8 +100,8 @@ export function AboPage() {
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Abo" }]}
       />
 
-      <FadeIn className="max-w-3xl mx-auto px-4 md:px-8 -mt-8 mb-16">
-        <p className="text-body-text text-lg leading-relaxed">
+      <FadeIn className="max-w-3xl mx-auto px-4 md:px-8 mb-12 md:mb-16">
+        <p className="text-body-text text-base md:text-lg leading-relaxed">
           Durch die Zusammenarbeit mit b-emotion profitieren kleine Unternehmen
           von einer kosteneffizienten, flexiblen und qualitativ hochwertigen
           Marketinglosung.

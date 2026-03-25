@@ -7,7 +7,7 @@ import { FadeIn } from "@/components/animations/FadeIn";
 
 export function CtaBanner() {
   return (
-    <section className="relative py-28 md:py-40 overflow-hidden">
+    <section className="relative py-16 md:py-40 overflow-hidden">
       {/* Dual ambient glow — teal atmosphere + warm yellow near CTAs */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-teal/[0.04] rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[400px] h-[300px] bg-primary/[0.03] rounded-full blur-[100px] pointer-events-none" />
@@ -16,7 +16,7 @@ export function CtaBanner() {
         <TextReveal
           text="LASSEN SIE UNS GEMEINSAM IDEEN ZUM LEBEN ERWECKEN."
           as="h2"
-          className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-[1.05]"
+          className="text-2xl md:text-5xl lg:text-6xl font-black text-white leading-[1.05]"
         />
 
         <FadeIn delay={0.3}>

@@ -18,18 +18,18 @@ export function SectionHeading({
 }: SectionHeadingProps) {
   return (
     <div
-      className={`mb-12 md:mb-16 ${align === "center" ? "text-center" : "text-left"} ${className}`}
+      className={`mb-8 md:mb-16 ${align === "center" ? "text-center" : "text-left"} ${className}`}
     >
       <TextReveal
         text={title}
         as="h2"
-        className="text-3xl md:text-5xl lg:text-6xl font-black text-white"
+        className="text-2xl md:text-5xl lg:text-6xl font-black text-white"
       />
       {subtitle && (
         <FadeIn delay={0.3}>
-          <div className={`mt-4 flex flex-col items-${align === "center" ? "center" : "start"} gap-3`}>
+          <div className={`mt-3 md:mt-4 flex flex-col ${align === "center" ? "items-center" : "items-start"} gap-3`}>
             <div className="w-8 h-[2px] bg-teal rounded-full" />
-            <p className="text-lg md:text-xl text-body-text max-w-2xl">
+            <p className="text-base md:text-xl text-body-text max-w-2xl">
               {subtitle}
             </p>
           </div>
