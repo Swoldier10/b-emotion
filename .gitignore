@@ -39,3 +39,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# screenshots from testing
+/*.png
+/*.jpeg
+/full-page.jpeg
+.playwright-mcp/
+
+# claude
+.claude/
