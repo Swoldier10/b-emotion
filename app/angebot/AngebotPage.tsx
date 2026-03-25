@@ -14,7 +14,7 @@ export function AngebotPage() {
         subtitle="Massgeschneiderte Losungen fur Ihr Marketing."
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Angebot" }]}
       />
-      <ServicesGrid />
+      <ServicesGrid showHeading={false} />
       <FadeIn className="text-center pb-20">
         <MagneticButton href="/abo">Jetzt Abo konfigurieren</MagneticButton>
       </FadeIn>

@@ -25,16 +25,18 @@ const iconMap: Record<string, LucideIcon> = {
   users: Users,
 };
 
-export function ServicesGrid() {
+export function ServicesGrid({ showHeading = true }: { showHeading?: boolean }) {
   return (
     <section className="relative py-16 md:py-40 px-4 md:px-8 overflow-hidden">
       {/* Teal ambient glow top-right */}
       <div className="absolute -top-32 -right-32 w-[500px] h-[500px] bg-teal/[0.03] rounded-full blur-[150px] pointer-events-none" />
       <div className="max-w-7xl mx-auto">
-        <SectionHeading
-          title="ANGEBOT"
-          subtitle="Was ich fur Sie tun kann."
-        />
+        {showHeading && (
+          <SectionHeading
+            title="ANGEBOT"
+            subtitle="Was ich fur Sie tun kann."
+          />
+        )}
         <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
           {services.map((service) => {
             const Icon = iconMap[service.iconName] || Globe;
