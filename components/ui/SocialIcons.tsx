@@ -40,22 +40,22 @@ function YoutubeIcon({ size = 20 }: { size?: number }) {
 export const socialLinks = [
   {
     icon: InstagramIcon,
-    href: "https://www.instagram.com/b_emotion.ch/",
+    href: "https://www.instagram.com/bemotion9212?igsh=MThzZ2Y2cnl5Z3VkZw==",
     label: "Instagram",
   },
   {
     icon: FacebookIcon,
-    href: "https://www.facebook.com/bemotion.ch",
+    href: "https://www.facebook.com/share/1CcowMku7z/?mibextid=wwXIfr",
     label: "Facebook",
   },
   {
     icon: LinkedinIcon,
-    href: "https://www.linkedin.com/company/b-emotion",
+    href: "https://www.linkedin.com/company/bemotion9212/",
     label: "LinkedIn",
   },
   {
     icon: YoutubeIcon,
-    href: "https://www.youtube.com/@b-emotion",
+    href: "https://www.youtube.com/@b-emotion_9212",
     label: "YouTube",
   },
 ];
