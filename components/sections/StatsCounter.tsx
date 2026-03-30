@@ -5,10 +5,10 @@ import { useInView } from "framer-motion";
 import { FadeIn } from "@/components/animations/FadeIn";
 
 const stats = [
-  { value: "2021", prefix: "", suffix: "", label: "Seit" },
-  { value: "6", prefix: "", suffix: "+", label: "Services" },
-  { value: "100", prefix: "", suffix: "%", label: "Personlich" },
-  { value: "\u221E", prefix: "", suffix: "", label: "Flexibilitat" },
+  { value: "6", prefix: "", suffix: "+", label: "Leistungen im Paket" },
+  { value: "1", prefix: "", suffix: "", label: "Ansprechpartner" },
+  { value: "100", prefix: "", suffix: "%", label: "Massgeschneidert" },
+  { value: "0", prefix: "", suffix: "", label: "Mindestlaufzeit" },
 ];
 
 function AnimatedNumber({
@@ -61,7 +61,7 @@ function AnimatedNumber({
 
 export function StatsCounter() {
   return (
-    <section className="relative py-20 md:py-28 border-y border-teal/[0.08] overflow-hidden">
+    <section className="relative py-20 md:py-28 border-y border-teal/20 overflow-hidden bg-teal/[0.04]">
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-teal/[0.03] to-transparent pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 md:gap-16">
@@ -73,7 +73,7 @@ export function StatsCounter() {
                   prefix={stat.prefix}
                   suffix={stat.suffix}
                 />
-                <p className="mt-3 text-[10px] md:text-xs text-white/30 uppercase tracking-[0.2em] font-medium">
+                <p className="mt-3 text-[10px] md:text-xs text-white/60 uppercase tracking-[0.2em] font-medium">
                   {stat.label}
                 </p>
               </div>

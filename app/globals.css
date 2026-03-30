@@ -11,6 +11,9 @@
   --color-text-tertiary: #727272;
   --color-muted: #B0B0B0;
   --color-bg-page: #050505;
+  --color-teal-wash: rgba(0, 101, 128, 0.04);
+  --color-teal-section: rgba(0, 101, 128, 0.08);
+  --color-primary-wash: rgba(255, 209, 0, 0.04);
   --font-sans: var(--font-nunito-sans);
 }
 

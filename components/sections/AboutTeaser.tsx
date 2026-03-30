@@ -31,12 +31,12 @@ export function AboutTeaser() {
 
         <FadeIn direction="left">
           <div className="space-y-6">
-            <p className="text-white/50 text-lg md:text-xl leading-relaxed font-light">
+            <p className="text-body-text text-lg md:text-xl leading-relaxed font-light">
               Mein Name ist Marc Baumann, und meine Leidenschaft fur Grafik und
               Marketing begleitet mich bereits seit meiner Ausbildung zum
               Polygrafen EFZ.
             </p>
-            <p className="text-white/50 text-lg md:text-xl leading-relaxed font-light">
+            <p className="text-body-text text-lg md:text-xl leading-relaxed font-light">
               Seit dem 1. Januar 2025 widme ich mich vollstandig b-emotion. Mein
               Ziel ist es, kleinen Unternehmen eine zentrale Anlaufstelle fur
               Marketing zu bieten.

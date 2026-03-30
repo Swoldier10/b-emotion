@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { AboPage } from "./AboPage";
+import { KontaktPage } from "../kontakt/KontaktPage";
 
 export const metadata: Metadata = {
   title: "Abo-Modelle | b-emotion — Flexibles Marketing-Abo",
   description:
     "Flexibles Marketing-Abo fur Schweizer KMU. Wahlen Sie die Leistungen, die Sie benotigen — ohne Mindestlaufzeit. Jetzt Abo konfigurieren.",
-  alternates: { canonical: "/abo" },
+  alternates: { canonical: "/kontakt" },
   openGraph: {
     title: "Abo-Modelle | b-emotion — Flexibles Marketing-Abo",
     description:
@@ -14,5 +14,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <AboPage />;
+  return <KontaktPage defaultTab="abo" />;
 }

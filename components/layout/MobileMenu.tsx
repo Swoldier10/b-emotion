@@ -12,7 +12,6 @@ const navLinks = [
   { href: "/projekte", label: "Projekte" },
   { href: "/ueber-mich", label: "Uber mich" },
   { href: "/kontakt", label: "Kontakt" },
-  { href: "/abo", label: "Abo" },
 ];
 
 interface MobileMenuProps {

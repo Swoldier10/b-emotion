@@ -8,7 +8,7 @@ interface MarqueeTextProps {
 }
 
 export function MarqueeText({
-  text = "GRAFIK \u2022 DESIGN \u2022 FOTO \u2022 VIDEO \u2022 SOCIAL MEDIA \u2022 WEBSITES \u2022 BERATUNG \u2022 STRATEGIE \u2022 ",
+  text = "GRAFIK \u2022 DESIGN \u2022 FOTO \u2022 VIDEO \u2022 SOCIAL MEDIA \u2022 WEBSITES \u2022 ALLES IM ABO \u2022 ",
   className = "",
 }: MarqueeTextProps) {
   return (

@@ -18,7 +18,7 @@ export function ClientLogos() {
     <section className="relative py-20 md:py-28 overflow-hidden bg-[#050505]">
       <div className="relative z-10">
         <SlideUp>
-          <p className="text-center text-[10px] uppercase tracking-[0.35em] text-white/30 mb-10 font-medium">
+          <p className="text-center text-[10px] uppercase tracking-[0.35em] text-white/50 mb-10 font-medium">
             Vertraut von
           </p>
         </SlideUp>

@@ -15,12 +15,12 @@ const navLinks = [
 ];
 
 const serviceLinks = [
-  { href: "/angebot#beratung", label: "Beratung" },
-  { href: "/angebot#grafik-design", label: "Grafik & Design" },
-  { href: "/angebot#foto-video", label: "Foto & Video" },
-  { href: "/angebot#social-media", label: "Social Media" },
-  { href: "/angebot#websites-newsletter", label: "Websites / Newsletter" },
-  { href: "/angebot#begleitung", label: "Begleitung" },
+  { href: "/angebot/beratung", label: "Beratung" },
+  { href: "/angebot/grafik-design", label: "Grafik & Design" },
+  { href: "/angebot/foto-video", label: "Foto & Video" },
+  { href: "/angebot/social-media", label: "Social Media" },
+  { href: "/angebot/websites-newsletter", label: "Websites / Newsletter" },
+  { href: "/angebot/begleitung", label: "Begleitung" },
 ];
 
 // socialLinks imported from SocialIcons
@@ -28,7 +28,7 @@ const serviceLinks = [
 export function Footer() {
   return (
     <footer className="bg-[#0A0A0A]">
-      <div className="h-[1px] bg-gradient-to-r from-transparent via-teal/40 to-transparent" />
+      <div className="h-[2px] bg-gradient-to-r from-transparent via-teal/50 to-transparent" />
       <FadeIn>
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-20">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">

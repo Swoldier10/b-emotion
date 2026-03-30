@@ -24,8 +24,8 @@ export default function HomePage() {
         <div className="bg-[#050505]">
         <ClientLogos />
         <ServicesGrid />
-        <ProjectsShowcase />
         <AboTeaser />
+        <ProjectsShowcase />
         <AboutTeaser />
         <Testimonials />
         <CtaBanner />

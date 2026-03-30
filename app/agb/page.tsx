@@ -71,6 +71,10 @@ export default function AGBPage() {
           </p>
         </div>
       </div>
+      <div className="mt-16 pt-8 border-t border-white/[0.04] text-center">
+        <p className="text-body-text text-sm mb-4">Haben Sie Fragen zu unseren AGB?</p>
+        <a href="/kontakt" className="text-primary text-sm uppercase tracking-wider font-semibold hover:underline underline-offset-4">Kontakt aufnehmen &rarr;</a>
+      </div>
     </div>
   );
 }

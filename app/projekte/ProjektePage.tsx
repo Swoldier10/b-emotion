@@ -1,23 +1,25 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { PageHero } from "@/components/ui/PageHero";
 import { FadeIn } from "@/components/animations/FadeIn";
-import { projects, categories } from "@/lib/projects";
+import { clientProjects, categories } from "@/lib/projects";
+import { ArrowRight } from "lucide-react";
 
 export function ProjektePage() {
   const [active, setActive] = useState("ALLE");
 
   const filtered =
     active === "ALLE"
-      ? projects
-      : projects.filter((p) => p.category === active);
+      ? clientProjects
+      : clientProjects.filter((cp) => cp.categories.includes(active));
 
   return (
     <>
       <PageHero
         title="PROJEKTE"
-        subtitle="Geschichten, die bewegen. Ergebnisse, die uberzeugen."
+        subtitle="Fur jeden Kunden ein massgeschneidertes Paket."
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Projekte" }]}
       />
 
@@ -38,30 +40,79 @@ export function ProjektePage() {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {filtered.map((project, i) => (
-            <FadeIn key={project.slug} delay={i * 0.05}>
-              <div className="relative overflow-hidden rounded-xl bg-dark aspect-[4/3]">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-                <div className="absolute inset-0 flex flex-col justify-end p-6">
-                  <span
-                    className={`text-[9px] uppercase tracking-[0.15em] px-2.5 py-1 rounded-full font-bold w-fit mb-3 ${
-                      project.category === "VIDEO" ||
-                      project.category === "FOTO"
-                        ? "bg-teal text-white"
-                        : "bg-primary text-dark"
-                    }`}
-                  >
-                    {project.category}
-                  </span>
-                  <h3 className="text-lg font-black text-white uppercase">
-                    {project.title}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
+          {filtered.map((cp, i) => (
+            <FadeIn key={cp.slug} delay={i * 0.05}>
+              <Link
+                href={`/projekte/${cp.slug}`}
+                className="group relative flex flex-col overflow-hidden rounded-2xl bg-[#111111] border border-white/[0.04] transition-all duration-500 hover:border-teal/20 h-full"
+              >
+                <div className="p-6 md:p-8 flex flex-col flex-1">
+                  {/* Category badges */}
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {cp.categories.map((cat) => (
+                      <span
+                        key={cat}
+                        className={`text-[9px] uppercase tracking-[0.15em] px-2.5 py-1 rounded-full font-bold ${
+                          cat === "VIDEO" || cat === "FOTO"
+                            ? "bg-teal text-white"
+                            : cat === "SOCIAL MEDIA"
+                              ? "bg-teal/70 text-white"
+                              : "bg-primary text-dark"
+                        }`}
+                      >
+                        {cat}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Client name */}
+                  <h3 className="text-xl md:text-2xl font-black text-white uppercase leading-tight">
+                    {cp.client}
                   </h3>
-                  <p className="mt-2 text-xs text-white/50 leading-relaxed line-clamp-2">
-                    {project.excerpt}
+
+                  {/* Period */}
+                  <p className="mt-1 text-xs text-white/40 uppercase tracking-wider">
+                    {cp.period}
                   </p>
+
+                  {/* Description — fixed height via line-clamp */}
+                  <p className="mt-4 text-sm text-body-text leading-relaxed font-light line-clamp-3 flex-1">
+                    {cp.description}
+                  </p>
+
+                  {/* Service pills */}
+                  <div className="mt-5 flex flex-wrap gap-1.5">
+                    {cp.projects
+                      .flatMap((p) => p.services)
+                      .slice(0, 5)
+                      .map((svc) => (
+                        <span
+                          key={svc}
+                          className="text-[10px] px-2.5 py-1 rounded-full border border-teal/15 text-teal bg-teal/[0.06] font-medium"
+                        >
+                          {svc}
+                        </span>
+                      ))}
+                    {cp.projects.flatMap((p) => p.services).length > 5 && (
+                      <span className="text-[10px] px-2.5 py-1 text-white/30 font-medium">
+                        +{cp.projects.flatMap((p) => p.services).length - 5}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* View link */}
+                  <div className="mt-6 flex items-center gap-2 text-white/20 group-hover:text-primary transition-colors duration-300">
+                    <span className="text-xs uppercase tracking-wider font-semibold">
+                      Projekt ansehen
+                    </span>
+                    <ArrowRight
+                      size={14}
+                      className="group-hover:translate-x-1 transition-transform duration-300"
+                    />
+                  </div>
                 </div>
-              </div>
+              </Link>
             </FadeIn>
           ))}
         </div>

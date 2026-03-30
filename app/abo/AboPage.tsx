@@ -10,6 +10,7 @@ import {
 } from "@/components/animations/StaggerChildren";
 import { AboConfigurator } from "@/components/forms/AboConfigurator";
 import { MagneticButton } from "@/components/ui/MagneticButton";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   ChevronDown,
   CheckCircle,
@@ -171,13 +172,24 @@ export function AboPage() {
                     }`}
                   />
                 </button>
-                {openFaq === i && (
-                  <div className="px-5 pb-5">
-                    <p className="text-body-text text-sm leading-relaxed">
-                      {faq.a}
-                    </p>
-                  </div>
-                )}
+                <AnimatePresence initial={false}>
+                  {openFaq === i && (
+                    <motion.div
+                      key={`faq-${i}`}
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-5 pb-5">
+                        <p className="text-body-text text-sm leading-relaxed">
+                          {faq.a}
+                        </p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             </FadeIn>
           ))}

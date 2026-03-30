@@ -3,7 +3,28 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { FadeIn } from "@/components/animations/FadeIn";
+import {
+  StaggerChildren,
+  StaggerItem,
+} from "@/components/animations/StaggerChildren";
+import {
+  Lightbulb,
+  Palette,
+  Camera,
+  Share2,
+  Globe,
+  Users,
+} from "lucide-react";
 import Link from "next/link";
+
+const aboServices = [
+  { icon: Lightbulb, label: "Beratung" },
+  { icon: Palette, label: "Design" },
+  { icon: Camera, label: "Foto & Video" },
+  { icon: Share2, label: "Social Media" },
+  { icon: Globe, label: "Web" },
+  { icon: Users, label: "Begleitung" },
+];
 
 export function AboTeaser() {
   const ref = useRef(null);
@@ -32,6 +53,7 @@ export function AboTeaser() {
                 IM ABO.
               </h2>
               <p className="mt-8 text-dark/60 text-lg max-w-lg leading-relaxed">
+                Nicht ein Spezialist — sondern Ihr kompletter Marketing-Partner.
                 Durch die Zusammenarbeit mit b-emotion profitieren kleine
                 Unternehmen von einer kosteneffizienten, flexiblen und
                 qualitativ hochwertigen Marketinglosung, die Ihre Ressourcen
@@ -39,28 +61,33 @@ export function AboTeaser() {
               </p>
               <div className="mt-10">
                 <Link
-                  href="/abo"
+                  href="/kontakt"
                   className="inline-flex items-center justify-center bg-dark text-white font-bold uppercase tracking-wider px-10 py-4 rounded-full text-sm hover:bg-black transition-colors"
                 >
-                  Abo-Modelle entdecken
+                  Jetzt starten
                 </Link>
               </div>
             </FadeIn>
           </div>
 
           <div className="lg:col-span-2 flex items-center justify-center">
-            <FadeIn direction="left">
-              <div className="relative">
-                {/* Decorative geometric shapes */}
-                <div className="w-40 h-40 md:w-56 md:h-56 bg-dark/[0.06] rounded-3xl rotate-12" />
-                <div className="absolute top-6 left-6 w-40 h-40 md:w-56 md:h-56 bg-dark/[0.06] rounded-3xl -rotate-6" />
-                <div className="absolute top-12 left-12 w-40 h-40 md:w-56 md:h-56 bg-dark/[0.08] rounded-3xl rotate-3 flex items-center justify-center">
-                  <span className="text-7xl md:text-8xl font-black text-dark/[0.12]">
-                    b
-                  </span>
-                </div>
-              </div>
-            </FadeIn>
+            <StaggerChildren className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              {aboServices.map((svc) => (
+                <StaggerItem key={svc.label}>
+                  <div className="bg-dark/[0.08] rounded-2xl p-4 md:p-5 text-center border border-dark/[0.06] hover:bg-dark/[0.12] transition-colors duration-300">
+                    <svc.icon
+                      size={28}
+                      strokeWidth={1.2}
+                      className="text-dark/60 mx-auto mb-2"
+                    />
+                    <p className="text-dark/70 text-[10px] md:text-xs font-bold uppercase tracking-wider">
+                      {svc.label}
+                    </p>
+                  </div>
+                </StaggerItem>
+              ))}
+              {/* Center "1 ABO" badge */}
+            </StaggerChildren>
           </div>
         </div>
       </motion.div>

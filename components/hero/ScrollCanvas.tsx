@@ -320,9 +320,9 @@ export function ScrollCanvas() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2, duration: 0.8 }}
           >
-            GRAFIK. DESIGN.
+            IHR KOMPLETTES
             <br />
-            <span className="text-primary">CONTENT.</span> DIGITAL.
+            <span className="text-primary">DIGITALPAKET.</span>
           </motion.h1>
           <motion.p
             className="mt-6 md:mt-8 text-lg md:text-2xl text-white/70 font-light tracking-wide"
@@ -330,7 +330,7 @@ export function ScrollCanvas() {
             animate={{ opacity: 1 }}
             transition={{ delay: 1.8, duration: 0.6 }}
           >
-            Ihr Partner fur Content und Marketing.
+            Grafik, Foto, Video, Web & Social Media — alles in einem Abo.
           </motion.p>
         </TextOverlay>
 
@@ -350,7 +350,7 @@ export function ScrollCanvas() {
                 EINER HAND.
               </h2>
               <p className="mt-5 text-lg md:text-xl text-white/60 font-light max-w-md">
-                Von der Strategie bis zur Umsetzung — personlich und flexibel.
+                Kein Spezialist fur eines — Ihr Partner fur alles. Im flexiblen Abo.
               </p>
             </div>
           </div>
@@ -364,9 +364,11 @@ export function ScrollCanvas() {
           position="right"
         >
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[0.95] drop-shadow-2xl">
-            <span className="text-primary">IHR</span> CONTENT.
+            WIR
             <br />
-            <span className="text-primary">IHRE</span> STORY.
+            <span className="text-primary">DIGITALISIEREN</span>
+            <br />
+            IHR BUSINESS.
           </h2>
           <p className="mt-5 text-lg md:text-xl text-white/60 font-light max-w-md ml-auto">
             Foto, Video, Design, Social Media — alles im Abo verfugbar.
@@ -388,10 +390,10 @@ export function ScrollCanvas() {
           </p>
           <div className="mt-10">
             <a
-              href="/kontakt"
+              href="/abo"
               className="inline-flex items-center justify-center bg-primary text-dark font-bold uppercase tracking-wider px-12 py-5 rounded-full text-sm hover:bg-white hover:text-dark transition-all duration-300 shadow-[0_0_40px_rgba(255,209,0,0.3)]"
             >
-              Projekt starten
+              Abo entdecken
             </a>
           </div>
         </TextOverlay>

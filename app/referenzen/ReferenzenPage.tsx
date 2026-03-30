@@ -23,17 +23,17 @@ const caseStudies = [
   {
     client: "VinoDiverso",
     desc: "Social-Media-Reels und Produktfotografie, die den Online-Auftritt komplett erneuert haben.",
-    slug: "vinodiverso-reel",
+    slug: "vinodiverso",
   },
   {
     client: "GRUEBLEREI",
     desc: "Eine hochwertige Jubilaumsbroschure, die Geschichte und Tradition verbindet.",
-    slug: "grueblerei-jubilaeumsbroschuere",
+    slug: "grueblerei",
   },
   {
     client: "Folienzuschnitt.ch",
     desc: "Professionelle Event-Videos und Firmenprasentation fur Kundentermine.",
-    slug: "folienzuschnitt-event-video",
+    slug: "folienzuschnitt",
   },
 ];
 
@@ -51,7 +51,7 @@ export function ReferenzenPage() {
         <StaggerChildren className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {clients.map((client) => (
             <StaggerItem key={client}>
-              <div className="bg-dark border border-white/5 rounded-xl p-6 flex items-center justify-center h-24 hover:border-primary/20 transition-all hover:scale-105 cursor-default">
+              <div className="bg-[#111111] border border-white/[0.04] rounded-xl p-6 flex items-center justify-center h-24 hover:border-teal/20 transition-all cursor-default">
                 <span className="text-sm font-bold text-white/50 hover:text-white/80 transition-colors text-center">
                   {client}
                 </span>
@@ -71,7 +71,7 @@ export function ReferenzenPage() {
             <FadeIn key={cs.slug} delay={i * 0.1}>
               <Link
                 href={`/projekte/${cs.slug}`}
-                className="group block bg-dark border border-white/5 rounded-xl p-8 hover:border-primary/20 transition-all"
+                className="group block bg-[#111111] border border-white/[0.04] rounded-2xl p-8 hover:border-teal/20 transition-all h-full"
               >
                 <span className="text-xs font-bold text-primary uppercase">
                   {cs.client}
@@ -89,9 +89,12 @@ export function ReferenzenPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 md:py-32 bg-[#0A0A0A] text-center">
-        <SectionHeading title="IHR PROJEKT KONNTE DAS NACHSTE SEIN." />
-        <MagneticButton href="/kontakt">Kontakt aufnehmen</MagneticButton>
+      <section className="relative py-20 md:py-32 text-center overflow-hidden bg-gradient-to-b from-[#050505] via-teal/[0.06] to-[#050505]">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-teal/[0.06] rounded-full blur-[120px] pointer-events-none" />
+        <div className="relative z-10">
+          <SectionHeading title="IHR PROJEKT KONNTE DAS NACHSTE SEIN." />
+          <MagneticButton href="/kontakt">Kontakt aufnehmen</MagneticButton>
+        </div>
       </section>
     </>
   );

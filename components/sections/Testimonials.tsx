@@ -9,6 +9,12 @@ import { FadeIn } from "@/components/animations/FadeIn";
 const testimonials = [
   {
     quote:
+      "Endlich ein Ansprechpartner fur alles — von der Strategie bis zum fertigen Produkt. Top Qualitat!",
+    name: "Stefan R.",
+    company: "GRUEBLEREI",
+  },
+  {
+    quote:
       "Marc hat unsere Marketingprasenz komplett transformiert. Professionell, kreativ und immer erreichbar.",
     name: "Thomas M.",
     company: "Folienzuschnitt.ch",
@@ -18,12 +24,6 @@ const testimonials = [
       "Die Zusammenarbeit mit b-emotion ist unkompliziert und die Ergebnisse sprechen fur sich. Sehr empfehlenswert!",
     name: "Anna K.",
     company: "VinoDiverso",
-  },
-  {
-    quote:
-      "Endlich ein Ansprechpartner fur alles — von der Strategie bis zum fertigen Produkt. Top Qualitat!",
-    name: "Stefan R.",
-    company: "GRUEBLEREI",
   },
   {
     quote:
@@ -52,7 +52,7 @@ export function Testimonials() {
   return (
     <section className="relative -my-16 py-32 md:-my-40 md:py-80 overflow-hidden">
       {/* Gradient: dark → teal-tinted → dark — oversized to bleed into adjacent sections */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-[#0c1a1f] to-[#050505] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-[#0d2830] to-[#050505] pointer-events-none" />
       {/* Teal ambient glows */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-teal/[0.06] rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[400px] h-[300px] bg-teal/[0.04] rounded-full blur-[100px] pointer-events-none" />
@@ -93,7 +93,7 @@ export function Testimonials() {
                     <p className="text-white font-bold text-sm uppercase tracking-wider">
                       {testimonials[current].name}
                     </p>
-                    <p className="text-white/30 text-xs mt-1 uppercase tracking-wider">
+                    <p className="text-white/50 text-xs mt-1 uppercase tracking-wider">
                       {testimonials[current].company}
                     </p>
                   </div>

@@ -156,9 +156,12 @@ export function UeberMichPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 md:py-32 bg-[#0A0A0A] text-center">
-        <SectionHeading title="BEREIT FUR IHR PROJEKT?" />
-        <MagneticButton href="/kontakt">Kontakt aufnehmen</MagneticButton>
+      <section className="relative py-20 md:py-32 text-center overflow-hidden bg-gradient-to-b from-[#050505] via-teal/[0.06] to-[#050505]">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-teal/[0.06] rounded-full blur-[120px] pointer-events-none" />
+        <div className="relative z-10">
+          <SectionHeading title="BEREIT FUR IHR PROJEKT?" />
+          <MagneticButton href="/kontakt">Kontakt aufnehmen</MagneticButton>
+        </div>
       </section>
     </>
   );
