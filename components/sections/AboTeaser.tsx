@@ -74,11 +74,11 @@ export function AboTeaser() {
             <StaggerChildren className="grid grid-cols-2 sm:grid-cols-3 gap-3">
               {aboServices.map((svc) => (
                 <StaggerItem key={svc.label}>
-                  <div className="bg-dark/[0.08] rounded-2xl p-4 md:p-5 text-center border border-dark/[0.06] hover:bg-dark/[0.12] transition-colors duration-300">
+                  <div className="bg-dark/[0.08] rounded-2xl p-4 md:p-5 text-center border border-dark/[0.06] hover:bg-dark/[0.12] transition-colors duration-300 h-full flex flex-col items-center justify-center">
                     <svc.icon
                       size={28}
                       strokeWidth={1.2}
-                      className="text-dark/60 mx-auto mb-2"
+                      className="text-dark/60 mb-2"
                     />
                     <p className="text-dark/70 text-[10px] md:text-xs font-bold uppercase tracking-wider">
                       {svc.label}
