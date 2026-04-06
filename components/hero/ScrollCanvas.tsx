@@ -521,7 +521,7 @@ export function ScrollCanvas() {
   );
 
   return (
-    <div ref={containerRef} className="relative h-[400vh]">
+    <div ref={containerRef} className="relative h-[250vh] md:h-[400vh]">
       {/* ---- Loading Screen ---- */}
       <AnimatePresence>
         {!loaded && (
@@ -600,8 +600,8 @@ export function ScrollCanvas() {
           position="center"
           visibleAtStart
         >
-          <motion.h1
-            className="text-5xl md:text-7xl lg:text-[6.5rem] xl:text-[8rem] font-black text-white leading-[0.95] tracking-tight md:drop-shadow-2xl"
+          <motion.p
+            className="text-5xl md:text-7xl lg:text-[6.5rem] xl:text-[8rem] font-black text-white leading-[0.95] tracking-tight md:drop-shadow-2xl uppercase"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2, duration: 0.8 }}
@@ -609,7 +609,7 @@ export function ScrollCanvas() {
             IHR KOMPLETTES
             <br />
             <span className="text-primary">DIGITALPAKET.</span>
-          </motion.h1>
+          </motion.p>
           <motion.p
             className="mt-6 md:mt-8 text-lg md:text-2xl text-white/70 font-light tracking-wide"
             initial={{ opacity: 0 }}
@@ -690,10 +690,4 @@ export function ScrollCanvas() {
       </div>
     </div>
   );
-}
-
-/* Helper for glow intensity per particle */
-function gowIntensity(globalGlow: number, easedProgress: number): number {
-  if (easedProgress < 0.05 || easedProgress > 0.6) return 0;
-  return globalGlow * (1 - Math.abs(easedProgress - 0.3) / 0.3);
 }

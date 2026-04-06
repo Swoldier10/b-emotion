@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "AGB | b-emotion",
   description: "Allgemeine Geschäftsbedingungen von b-emotion, Marc Baumann.",
+  alternates: { canonical: "/agb" },
 };
 
 export default function AGBPage() {

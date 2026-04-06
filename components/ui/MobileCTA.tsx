@@ -9,7 +9,7 @@ export function MobileCTA() {
   const { scrollYProgress } = useScroll();
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    setShow(latest > 0.15);
+    setShow(latest > 0.35);
   });
 
   return (

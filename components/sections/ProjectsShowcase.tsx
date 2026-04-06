@@ -20,7 +20,7 @@ export function ProjectsShowcase() {
                 {cp.categories.map((cat) => (
                   <span
                     key={cat}
-                    className={`text-[9px] uppercase tracking-[0.15em] px-2.5 py-1 rounded-full font-bold ${
+                    className={`text-[10px] uppercase tracking-[0.15em] px-2.5 py-1 rounded-full font-bold ${
                       cat === "VIDEO" || cat === "FOTO"
                         ? "bg-teal text-white"
                         : cat === "SOCIAL MEDIA"
@@ -53,13 +53,13 @@ export function ProjectsShowcase() {
                   .map((svc) => (
                     <span
                       key={svc}
-                      className="text-[9px] px-2 py-0.5 rounded-full border border-teal/15 text-teal/80 font-medium"
+                      className="text-[10px] px-2 py-0.5 rounded-full border border-teal/15 text-teal/80 font-medium"
                     >
                       {svc}
                     </span>
                   ))}
                 {cp.projects.flatMap((p) => p.services).length > 4 && (
-                  <span className="text-[9px] px-2 py-0.5 text-white/30 font-medium">
+                  <span className="text-[10px] px-2 py-0.5 text-white/30 font-medium">
                     +
                     {cp.projects.flatMap((p) => p.services).length - 4}{" "}
                     mehr

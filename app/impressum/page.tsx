@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Impressum | b-emotion",
   description: "Impressum und rechtliche Angaben von b-emotion, Marc Baumann, Arnegg SG.",
+  alternates: { canonical: "/impressum" },
 };
 
 export default function ImpressumPage() {

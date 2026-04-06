@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { SlideUp } from "@/components/animations/SlideUp";
 
 const clients = [
@@ -18,7 +17,7 @@ export function ClientLogos() {
     <section className="relative py-20 md:py-28 overflow-hidden bg-[#050505]">
       <div className="relative z-10">
         <SlideUp>
-          <p className="text-center text-[10px] uppercase tracking-[0.35em] text-white/50 mb-10 font-medium">
+          <p className="text-center text-[11px] md:text-xs uppercase tracking-[0.35em] text-white/50 mb-10 font-medium">
             Vertraut von
           </p>
         </SlideUp>
@@ -29,17 +28,9 @@ export function ClientLogos() {
           <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#050505] to-transparent z-10" />
 
           <div className="overflow-hidden" aria-label="Kundenlogos">
-            <motion.div
+            <div
               className="flex whitespace-nowrap items-center"
-              animate={{ x: [0, "-50%"] }}
-              transition={{
-                x: {
-                  repeat: Infinity,
-                  repeatType: "loop",
-                  duration: 30,
-                  ease: "linear",
-                },
-              }}
+              style={{ animation: "marquee 30s linear infinite" }}
             >
               {allClients.map((client, i) => (
                 <div
@@ -53,7 +44,7 @@ export function ClientLogos() {
                   </span>
                 </div>
               ))}
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>

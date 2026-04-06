@@ -133,7 +133,7 @@ export function AboConfigurator() {
     <div className="bg-dark border border-white/5 rounded-xl p-6 md:p-10">
       {/* Progress */}
       <div className="flex items-center justify-between mb-8">
-        <span className="text-xs uppercase tracking-wide text-text-secondary">
+        <span className="text-xs uppercase tracking-wide text-text-secondary" aria-live="polite">
           Schritt {currentDisplay} von {totalSteps}
         </span>
         <div className="flex gap-1.5">
@@ -168,6 +168,7 @@ export function AboConfigurator() {
                     key={opt.id}
                     type="button"
                     onClick={() => toggleService(opt.id)}
+                    aria-pressed={selected}
                     className={`flex items-center gap-3 p-4 rounded-lg border text-left transition-all ${
                       selected
                         ? "border-primary bg-primary/10 text-white"
@@ -233,6 +234,7 @@ export function AboConfigurator() {
                       key={ct.id}
                       type="button"
                       onClick={() => toggleContentType(ct.id)}
+                      aria-pressed={sel}
                       className={`p-4 rounded-lg border text-left transition-all ${
                         sel
                           ? "border-primary bg-primary/10"

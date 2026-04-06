@@ -1,7 +1,8 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, ReactNode, useState, useEffect } from "react";
+import { useRef, ReactNode } from "react";
+import { useIsMobile } from "@/lib/hooks/useIsMobile";
 
 interface ParallaxSectionProps {
   children: ReactNode;
@@ -14,11 +15,7 @@ export function ParallaxSection({
   offset = 50,
   className = "",
 }: ParallaxSectionProps) {
-  const [isMobile, setIsMobile] = useState(false);
-  useEffect(() => {
-    setIsMobile(window.innerWidth < 768);
-  }, []);
-
+  const isMobile = useIsMobile();
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,

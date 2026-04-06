@@ -98,7 +98,7 @@ export function ClientDetailPage({ client }: { client: ClientProject }) {
             <FadeIn>
               <div className="flex items-center gap-3 mb-2">
                 <span
-                  className={`text-[9px] uppercase tracking-[0.15em] px-2.5 py-1 rounded-full font-bold ${
+                  className={`text-[10px] uppercase tracking-[0.15em] px-2.5 py-1 rounded-full font-bold ${
                     project.category === "VIDEO" || project.category === "FOTO"
                       ? "bg-teal text-white"
                       : project.category === "SOCIAL MEDIA"
@@ -152,7 +152,7 @@ export function ClientDetailPage({ client }: { client: ClientProject }) {
                     {c.categories.map((cat) => (
                       <span
                         key={cat}
-                        className={`text-[8px] uppercase tracking-[0.15em] px-2 py-0.5 rounded-full font-bold ${
+                        className={`text-[10px] uppercase tracking-[0.15em] px-2 py-0.5 rounded-full font-bold ${
                           cat === "VIDEO" || cat === "FOTO"
                             ? "bg-teal text-white"
                             : "bg-primary text-dark"

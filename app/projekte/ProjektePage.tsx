@@ -10,6 +10,15 @@ import { ArrowRight } from "lucide-react";
 export function ProjektePage() {
   const [active, setActive] = useState("ALLE");
 
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://b-emotion.ch/" },
+      { "@type": "ListItem", position: 2, name: "Projekte", item: "https://b-emotion.ch/projekte" },
+    ],
+  };
+
   const filtered =
     active === "ALLE"
       ? clientProjects
@@ -17,6 +26,7 @@ export function ProjektePage() {
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <PageHero
         title="PROJEKTE"
         subtitle="Für jeden Kunden ein massgeschneidertes Paket."
@@ -29,6 +39,7 @@ export function ProjektePage() {
             <button
               key={cat}
               onClick={() => setActive(cat)}
+              aria-pressed={active === cat}
               className={`px-4 py-2 text-xs uppercase tracking-wide rounded-full border transition-all ${
                 active === cat
                   ? "bg-primary text-dark border-primary font-semibold"
@@ -53,7 +64,7 @@ export function ProjektePage() {
                     {cp.categories.map((cat) => (
                       <span
                         key={cat}
-                        className={`text-[9px] uppercase tracking-[0.15em] px-2.5 py-1 rounded-full font-bold ${
+                        className={`text-[10px] uppercase tracking-[0.15em] px-2.5 py-1 rounded-full font-bold ${
                           cat === "VIDEO" || cat === "FOTO"
                             ? "bg-teal text-white"
                             : cat === "SOCIAL MEDIA"

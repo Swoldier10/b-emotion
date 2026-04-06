@@ -1,7 +1,8 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { useRef } from "react";
+import { useIsMobile } from "@/lib/hooks/useIsMobile";
 import { FadeIn } from "@/components/animations/FadeIn";
 import {
   StaggerChildren,
@@ -28,10 +29,7 @@ const aboServices = [
 
 export function AboTeaser() {
   const ref = useRef(null);
-  const [isMobile, setIsMobile] = useState(false);
-  useEffect(() => {
-    setIsMobile(window.innerWidth < 768);
-  }, []);
+  const isMobile = useIsMobile();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "center center"],
@@ -85,7 +83,7 @@ export function AboTeaser() {
                       strokeWidth={1.2}
                       className="text-dark/60 mb-2"
                     />
-                    <p className="text-dark/70 text-[10px] md:text-xs font-bold uppercase tracking-wider">
+                    <p className="text-dark/70 text-[11px] md:text-xs font-bold uppercase tracking-wider">
                       {svc.label}
                     </p>
                   </div>

@@ -111,18 +111,22 @@ export function Testimonials() {
                 <ChevronLeft size={18} />
               </button>
 
-              <div className="flex gap-2">
+              <div className="flex gap-1">
                 {testimonials.map((_, i) => (
                   <button
                     key={i}
                     onClick={() => setCurrent(i)}
-                    className={`h-1 rounded-full transition-all duration-500 ${
-                      i === current
-                        ? "bg-primary w-8"
-                        : "bg-white/10 w-4 hover:bg-white/20"
-                    }`}
+                    className="flex items-center justify-center min-w-[44px] min-h-[44px]"
                     aria-label={`Testimonial ${i + 1}`}
-                  />
+                  >
+                    <span
+                      className={`block h-1 rounded-full transition-all duration-500 ${
+                        i === current
+                          ? "bg-primary w-8"
+                          : "bg-white/10 w-4 hover:bg-white/20"
+                      }`}
+                    />
+                  </button>
                 ))}
               </div>
 

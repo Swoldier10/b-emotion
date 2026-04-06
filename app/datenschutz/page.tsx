@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Datenschutz | b-emotion",
   description: "Datenschutzerklärung von b-emotion, Marc Baumann. Informationen zum Schutz Ihrer personenbezogenen Daten.",
+  alternates: { canonical: "/datenschutz" },
 };
 
 export default function DatenschutzPage() {

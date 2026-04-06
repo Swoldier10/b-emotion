@@ -38,7 +38,7 @@ export function PageHero({
         {breadcrumbs && (
           <FadeIn>
             <nav
-              className="mb-4 md:mb-6 text-[10px] md:text-xs uppercase tracking-wide text-text-secondary"
+              className="mb-4 md:mb-6 text-[11px] md:text-xs uppercase tracking-wide text-text-secondary"
               aria-label="Breadcrumb"
             >
               <ol className="flex items-center gap-2">

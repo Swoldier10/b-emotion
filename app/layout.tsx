@@ -53,7 +53,13 @@ export const metadata: Metadata = {
       "Grafik & Design, Foto & Video, Social Media, Marketing-Beratung — alles aus einer Hand. Auch im Abo.",
     images: ["/og-image.png"],
   },
-  robots: { index: true, follow: true },
+  robots: {
+    index: true,
+    follow: true,
+    "max-snippet": -1,
+    "max-image-preview": "large" as const,
+    "max-video-preview": -1,
+  },
 };
 
 export default function RootLayout({
@@ -63,13 +69,15 @@ export default function RootLayout({
 }>) {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "ProfessionalService",
     name: "b-emotion",
     description:
-      "Content, Grafik & Digital — Marketing-Agentur für KMU in der Schweiz",
+      "Content, Grafik & Digital — Marketing-Agentur für KMU in der Schweiz. Grafik & Design, Foto & Video, Social Media, Websites und laufende Begleitung. Alles im flexiblen Abo.",
     url: "https://b-emotion.ch",
     telephone: "+41765646273",
     email: "mail@b-emotion.ch",
+    image: "https://b-emotion.ch/og-image.png",
+    priceRange: "$$",
     address: {
       "@type": "PostalAddress",
       streetAddress: "Bettenstrasse 19",
@@ -81,16 +89,29 @@ export default function RootLayout({
     founder: {
       "@type": "Person",
       name: "Marc Baumann",
+      jobTitle: "Inhaber & Marketing-Experte",
     },
     areaServed: {
       "@type": "Country",
       name: "Switzerland",
     },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Marketing-Leistungen",
+      itemListElement: [
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Beratung" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Grafik & Design" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Foto & Video" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Social Media" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Websites / Newsletter" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Begleitung" } },
+      ],
+    },
     sameAs: [
-      "https://www.instagram.com/b_emotion.ch/",
-      "https://www.facebook.com/bemotion.ch",
-      "https://www.linkedin.com/company/b-emotion",
-      "https://www.youtube.com/@b-emotion",
+      "https://www.instagram.com/bemotion9212",
+      "https://www.facebook.com/share/1CcowMku7z/",
+      "https://www.linkedin.com/company/bemotion9212/",
+      "https://www.youtube.com/@b-emotion_9212",
     ],
   };
 

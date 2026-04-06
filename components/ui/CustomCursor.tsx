@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
+const INTERACTIVE_SELECTOR = "a, button, [role='button'], input, textarea, select";
+
 export function CustomCursor() {
   const [isHovering, setIsHovering] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
@@ -25,25 +27,29 @@ export function CustomCursor() {
       cursorY.set(e.clientY);
     };
 
-    const handleHoverStart = () => setIsHovering(true);
-    const handleHoverEnd = () => setIsHovering(false);
+    // Event delegation — works for dynamically rendered elements too
+    const handleMouseOver = (e: MouseEvent) => {
+      const target = e.target as Element;
+      if (target.closest(INTERACTIVE_SELECTOR)) {
+        setIsHovering(true);
+      }
+    };
+
+    const handleMouseOut = (e: MouseEvent) => {
+      const target = e.relatedTarget as Element | null;
+      if (!target || !target.closest(INTERACTIVE_SELECTOR)) {
+        setIsHovering(false);
+      }
+    };
 
     window.addEventListener("mousemove", moveCursor);
-
-    const interactiveElements = document.querySelectorAll(
-      "a, button, [role='button'], input, textarea, select"
-    );
-    interactiveElements.forEach((el) => {
-      el.addEventListener("mouseenter", handleHoverStart);
-      el.addEventListener("mouseleave", handleHoverEnd);
-    });
+    document.addEventListener("mouseover", handleMouseOver);
+    document.addEventListener("mouseout", handleMouseOut);
 
     return () => {
       window.removeEventListener("mousemove", moveCursor);
-      interactiveElements.forEach((el) => {
-        el.removeEventListener("mouseenter", handleHoverStart);
-        el.removeEventListener("mouseleave", handleHoverEnd);
-      });
+      document.removeEventListener("mouseover", handleMouseOver);
+      document.removeEventListener("mouseout", handleMouseOut);
     };
   }, [cursorX, cursorY]);
 

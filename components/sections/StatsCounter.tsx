@@ -73,7 +73,7 @@ export function StatsCounter() {
                   prefix={stat.prefix}
                   suffix={stat.suffix}
                 />
-                <p className="mt-3 text-[10px] md:text-xs text-white/60 uppercase tracking-[0.2em] font-medium">
+                <p className="mt-3 text-[11px] md:text-xs text-white/60 uppercase tracking-[0.2em] font-medium">
                   {stat.label}
                 </p>
               </div>

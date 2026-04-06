@@ -61,6 +61,15 @@ export function KontaktPage({ defaultTab = "kontakt" }: { defaultTab?: Tab }) {
   const [activeTab, setActiveTab] = useState<Tab>(defaultTab);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://b-emotion.ch/" },
+      { "@type": "ListItem", position: 2, name: "Kontakt", item: "https://b-emotion.ch/kontakt" },
+    ],
+  };
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -76,10 +85,8 @@ export function KontaktPage({ defaultTab = "kontakt" }: { defaultTab?: Tab }) {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <PageHero
         title="LASSEN SIE UNS STARTEN"
         subtitle="Allgemeine Anfrage oder Abo konfigurieren — Sie entscheiden."
@@ -91,9 +98,13 @@ export function KontaktPage({ defaultTab = "kontakt" }: { defaultTab?: Tab }) {
           {/* Left: Tabbed form area */}
           <div>
             {/* Tab selector */}
-            <div className="flex gap-2 mb-8">
+            <div className="flex gap-2 mb-8" role="tablist" aria-label="Kontakt-Optionen">
               <button
                 onClick={() => setActiveTab("kontakt")}
+                role="tab"
+                id="tab-kontakt"
+                aria-selected={activeTab === "kontakt"}
+                aria-controls="panel-kontakt"
                 className={`flex items-center gap-2 px-5 py-3 rounded-full text-sm font-semibold uppercase tracking-wide border transition-all ${
                   activeTab === "kontakt"
                     ? "bg-primary text-dark border-primary"
@@ -105,6 +116,10 @@ export function KontaktPage({ defaultTab = "kontakt" }: { defaultTab?: Tab }) {
               </button>
               <button
                 onClick={() => setActiveTab("abo")}
+                role="tab"
+                id="tab-abo"
+                aria-selected={activeTab === "abo"}
+                aria-controls="panel-abo"
                 className={`flex items-center gap-2 px-5 py-3 rounded-full text-sm font-semibold uppercase tracking-wide border transition-all ${
                   activeTab === "abo"
                     ? "bg-primary text-dark border-primary"
@@ -121,6 +136,9 @@ export function KontaktPage({ defaultTab = "kontakt" }: { defaultTab?: Tab }) {
               {activeTab === "kontakt" && (
                 <motion.div
                   key="kontakt"
+                  id="panel-kontakt"
+                  role="tabpanel"
+                  aria-labelledby="tab-kontakt"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
@@ -132,6 +150,9 @@ export function KontaktPage({ defaultTab = "kontakt" }: { defaultTab?: Tab }) {
               {activeTab === "abo" && (
                 <motion.div
                   key="abo"
+                  id="panel-abo"
+                  role="tabpanel"
+                  aria-labelledby="tab-abo"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
@@ -243,6 +264,9 @@ export function KontaktPage({ defaultTab = "kontakt" }: { defaultTab?: Tab }) {
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   className="w-full flex items-center justify-between p-5 text-left"
+                  aria-expanded={openFaq === i}
+                  aria-controls={`faq-panel-${i}`}
+                  id={`faq-btn-${i}`}
                 >
                   <span className="text-white text-sm font-semibold pr-4">
                     {faq.q}
@@ -258,6 +282,9 @@ export function KontaktPage({ defaultTab = "kontakt" }: { defaultTab?: Tab }) {
                   {openFaq === i && (
                     <motion.div
                       key={`faq-${i}`}
+                      id={`faq-panel-${i}`}
+                      role="region"
+                      aria-labelledby={`faq-btn-${i}`}
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}

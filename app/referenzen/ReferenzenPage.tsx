@@ -38,8 +38,18 @@ const caseStudies = [
 ];
 
 export function ReferenzenPage() {
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://b-emotion.ch/" },
+      { "@type": "ListItem", position: 2, name: "Referenzen", item: "https://b-emotion.ch/referenzen" },
+    ],
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <PageHero
         title="REFERENZEN"
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Referenzen" }]}

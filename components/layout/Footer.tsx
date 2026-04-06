@@ -139,7 +139,7 @@ export function Footer() {
 
       <div className="border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-4 md:py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-text-secondary">
-          <p>&copy; 2025 b-emotion Marc Baumann</p>
+          <p>&copy; {new Date().getFullYear()} b-emotion Marc Baumann</p>
           <div className="flex gap-4">
             <Link href="/impressum" className="hover:text-primary transition-colors">
               Impressum
