@@ -47,7 +47,7 @@ export function AboTeaser() {
         style={{ scale, borderRadius }}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-16 py-24 md:py-36 grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-3 text-center lg:text-left">
             <FadeIn direction="right">
               <p className="text-dark/40 text-xs uppercase tracking-[0.3em] font-bold mb-4">
                 Flexibel & skalierbar
@@ -57,7 +57,7 @@ export function AboTeaser() {
                 <br />
                 IM ABO.
               </h2>
-              <p className="mt-8 text-dark/60 text-lg max-w-lg leading-relaxed">
+              <p className="mt-8 text-dark/60 text-lg max-w-lg mx-auto lg:mx-0 leading-relaxed">
                 Nicht ein Spezialist — sondern Ihr kompletter Marketing-Partner.
                 Durch die Zusammenarbeit mit b-emotion profitieren kleine
                 Unternehmen von einer kosteneffizienten, flexiblen und
