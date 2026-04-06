@@ -15,13 +15,13 @@ import { User, Layers, Zap } from "lucide-react";
 const values = [
   {
     icon: User,
-    title: "PERSONLICH",
+    title: "PERSÖNLICH",
     text: "Kein Agentur-Karussell. Ich bin Ihr direkter Ansprechpartner — von der Idee bis zum fertigen Produkt.",
   },
   {
     icon: Layers,
     title: "VIELSEITIG",
-    text: "Ein Ansprechpartner fur alle Marketingbedurfnisse. Was ich nicht selbst mache, deckt mein Netzwerk ab.",
+    text: "Ein Ansprechpartner für alle Marketingbedürfnisse. Was ich nicht selbst mache, deckt mein Netzwerk ab.",
   },
   {
     icon: Zap,
@@ -57,8 +57,8 @@ export function UeberMichPage() {
   return (
     <>
       <PageHero
-        title="UBER MICH"
-        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Uber mich" }]}
+        title="ÜBER MICH"
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Über mich" }]}
       />
 
       {/* Personal Introduction */}
@@ -79,17 +79,17 @@ export function UeberMichPage() {
           <FadeIn direction="left">
             <div className="space-y-6 text-body-text text-lg leading-relaxed">
               <p>
-                Mein Name ist Marc Baumann, und meine Leidenschaft fur Grafik
+                Mein Name ist Marc Baumann, und meine Leidenschaft für Grafik
                 und Marketing begleitet mich bereits seit meiner Ausbildung zum
                 Polygrafen EFZ (2003-2007).
               </p>
               <p>
-                Mein beruflicher Weg fuhrte mich von der Leitung einer
-                Druckvorstufe uber eine Position als Application Engineer in der
+                Mein beruflicher Weg führte mich von der Leitung einer
+                Druckvorstufe über eine Position als Application Engineer in der
                 IT- und Publishing-Branche schliesslich in eine grosse
-                Autogarage, wo ich die gesamte Marketingverantwortung ubernahm.
-                Neben strategischen Aufgaben war ich direkt fur die Umsetzung
-                zustandig und konnte meine Expertise in der Contenterstellung
+                Autogarage, wo ich die gesamte Marketingverantwortung übernahm.
+                Neben strategischen Aufgaben war ich direkt für die Umsetzung
+                zuständig und konnte meine Expertise in der Contenterstellung
                 kontinuierlich erweitern.
               </p>
               <p>
@@ -99,12 +99,12 @@ export function UeberMichPage() {
                 b-emotion.
               </p>
               <p>
-                Seit dem 1. Januar 2025 widme ich mich vollstandig b-emotion.
+                Seit dem 1. Januar 2025 widme ich mich vollständig b-emotion.
                 Mein Ziel ist es, kleinen Unternehmen eine zentrale Anlaufstelle
-                fur Marketing zu bieten. Alle Aufgaben in meinem Fachgebiet
-                ubernehme ich personlich, wahrend ich bei spezifischen
-                Anforderungen auf mein uber Jahre gewachsenes Netzwerk aus
-                Spezialisten zuruckgreife.
+                für Marketing zu bieten. Alle Aufgaben in meinem Fachgebiet
+                übernehme ich persönlich, während ich bei spezifischen
+                Anforderungen auf mein über Jahre gewachsenes Netzwerk aus
+                Spezialisten zurückgreife.
               </p>
             </div>
           </FadeIn>
@@ -159,7 +159,7 @@ export function UeberMichPage() {
       <section className="relative py-20 md:py-32 text-center overflow-hidden bg-gradient-to-b from-[#050505] via-teal/[0.06] to-[#050505]">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-teal/[0.06] rounded-full blur-[120px] pointer-events-none" />
         <div className="relative z-10">
-          <SectionHeading title="BEREIT FUR IHR PROJEKT?" />
+          <SectionHeading title="BEREIT FÜR IHR PROJEKT?" />
           <MagneticButton href="/kontakt">Kontakt aufnehmen</MagneticButton>
         </div>
       </section>

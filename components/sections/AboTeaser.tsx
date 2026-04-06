@@ -56,8 +56,8 @@ export function AboTeaser() {
                 Nicht ein Spezialist — sondern Ihr kompletter Marketing-Partner.
                 Durch die Zusammenarbeit mit b-emotion profitieren kleine
                 Unternehmen von einer kosteneffizienten, flexiblen und
-                qualitativ hochwertigen Marketinglosung, die Ihre Ressourcen
-                schont und ihre Ziele effektiv unterstutzt.
+                qualitativ hochwertigen Marketinglösung, die Ihre Ressourcen
+                schont und ihre Ziele effektiv unterstützt.
               </p>
               <div className="mt-10">
                 <Link

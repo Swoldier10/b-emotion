@@ -9,19 +9,19 @@ import { FadeIn } from "@/components/animations/FadeIn";
 const testimonials = [
   {
     quote:
-      "Endlich ein Ansprechpartner fur alles — von der Strategie bis zum fertigen Produkt. Top Qualitat!",
+      "Endlich ein Ansprechpartner für alles — von der Strategie bis zum fertigen Produkt. Top Qualität!",
     name: "Stefan R.",
     company: "GRUEBLEREI",
   },
   {
     quote:
-      "Marc hat unsere Marketingprasenz komplett transformiert. Professionell, kreativ und immer erreichbar.",
+      "Marc hat unsere Marketingpräsenz komplett transformiert. Professionell, kreativ und immer erreichbar.",
     name: "Thomas M.",
     company: "Folienzuschnitt.ch",
   },
   {
     quote:
-      "Die Zusammenarbeit mit b-emotion ist unkompliziert und die Ergebnisse sprechen fur sich. Sehr empfehlenswert!",
+      "Die Zusammenarbeit mit b-emotion ist unkompliziert und die Ergebnisse sprechen für sich. Sehr empfehlenswert!",
     name: "Anna K.",
     company: "VinoDiverso",
   },
@@ -129,7 +129,7 @@ export function Testimonials() {
               <button
                 onClick={next}
                 className="w-11 h-11 rounded-full border border-white/10 flex items-center justify-center text-white/30 hover:text-primary hover:border-primary/40 transition-all"
-                aria-label="Nachstes Testimonial"
+                aria-label="Nächstes Testimonial"
               >
                 <ChevronRight size={18} />
               </button>

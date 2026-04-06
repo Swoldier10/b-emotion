@@ -27,12 +27,12 @@ const caseStudies = [
   },
   {
     client: "GRUEBLEREI",
-    desc: "Eine hochwertige Jubilaumsbroschure, die Geschichte und Tradition verbindet.",
+    desc: "Eine hochwertige Jubiläumsbroschüre, die Geschichte und Tradition verbindet.",
     slug: "grueblerei",
   },
   {
     client: "Folienzuschnitt.ch",
-    desc: "Professionelle Event-Videos und Firmenprasentation fur Kundentermine.",
+    desc: "Professionelle Event-Videos und Firmenpräsentation für Kundentermine.",
     slug: "folienzuschnitt",
   },
 ];
@@ -65,7 +65,7 @@ export function ReferenzenPage() {
 
       {/* Mini Case Studies */}
       <section className="py-16 md:py-24 px-4 md:px-8 max-w-7xl mx-auto">
-        <SectionHeading title="AUSGEWAHLTE PROJEKTE" />
+        <SectionHeading title="AUSGEWÄHLTE PROJEKTE" />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {caseStudies.map((cs, i) => (
             <FadeIn key={cs.slug} delay={i * 0.1}>
@@ -92,7 +92,7 @@ export function ReferenzenPage() {
       <section className="relative py-20 md:py-32 text-center overflow-hidden bg-gradient-to-b from-[#050505] via-teal/[0.06] to-[#050505]">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-teal/[0.06] rounded-full blur-[120px] pointer-events-none" />
         <div className="relative z-10">
-          <SectionHeading title="IHR PROJEKT KONNTE DAS NACHSTE SEIN." />
+          <SectionHeading title="IHR PROJEKT KÖNNTE DAS NÄCHSTE SEIN." />
           <MagneticButton href="/kontakt">Kontakt aufnehmen</MagneticButton>
         </div>
       </section>

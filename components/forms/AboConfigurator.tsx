@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 
 const serviceOptions = [
-  { id: "social", label: "Social Media Beitrage", icon: Share2 },
+  { id: "social", label: "Social Media Beiträge", icon: Share2 },
   { id: "foto", label: "Fotoshooting", icon: Camera },
   { id: "video", label: "Video", icon: Video },
   { id: "grafik", label: "Grafikdesign", icon: Palette },
@@ -120,7 +120,7 @@ export function AboConfigurator() {
           <Check size={32} className="text-primary" />
         </div>
         <h3 className="text-2xl font-black text-white">
-          VIELEN DANK FUR IHRE ANFRAGE!
+          VIELEN DANK FÜR IHRE ANFRAGE!
         </h3>
         <p className="mt-3 text-body-text">
           Ich melde mich innerhalb von 24 Stunden bei Ihnen.
@@ -158,7 +158,7 @@ export function AboConfigurator() {
             exit={{ opacity: 0, x: -20 }}
           >
             <h3 className="text-lg font-black text-white uppercase mb-6">
-              Welche Leistungen benotigen Sie?
+              Welche Leistungen benötigen Sie?
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {serviceOptions.map((opt) => {
@@ -202,7 +202,7 @@ export function AboConfigurator() {
             </h3>
             <div className="mb-6">
               <label className="block text-xs uppercase tracking-wide text-text-secondary mb-3">
-                Anzahl Beitrage pro Monat
+                Anzahl Beiträge pro Monat
               </label>
               <div className="flex gap-2">
                 {postCounts.map((count) => (
@@ -271,7 +271,7 @@ export function AboConfigurator() {
                 onChange={(e) => setBudget(e.target.value)}
                 className="w-full bg-bg-page border border-white/10 rounded-lg px-4 py-3 text-white text-sm focus:border-teal focus:ring-1 focus:ring-teal outline-none transition-colors appearance-none"
               >
-                <option value="">Bitte wahlen...</option>
+                <option value="">Bitte wählen...</option>
                 {budgetOptions.map((b) => (
                   <option key={b} value={b}>
                     {b}
@@ -288,7 +288,7 @@ export function AboConfigurator() {
                 onChange={(e) => setDescription(e.target.value)}
                 rows={4}
                 className="w-full bg-bg-page border border-white/10 rounded-lg px-4 py-3 text-white text-sm placeholder:text-white/30 focus:border-teal focus:ring-1 focus:ring-teal outline-none transition-colors resize-none"
-                placeholder="Erzahlen Sie mir von Ihrem Projekt..."
+                placeholder="Erzählen Sie mir von Ihrem Projekt..."
               />
             </div>
           </motion.div>
@@ -410,7 +410,7 @@ export function AboConfigurator() {
             className="flex items-center gap-1 text-sm text-body-text hover:text-white disabled:opacity-30 transition-colors"
           >
             <ChevronLeft size={16} />
-            Zuruck
+            Zurück
           </button>
           <button
             onClick={nextStep}

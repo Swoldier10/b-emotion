@@ -46,12 +46,12 @@ export default function ImpressumPage() {
         <div>
           <h2 className="text-lg font-bold text-white mb-2">HAFTUNGSAUSSCHLUSS</h2>
           <p>
-            Der Autor ubernimmt keinerlei Gewahr hinsichtlich der inhaltlichen
-            Richtigkeit, Genauigkeit, Aktualitat, Zuverlassigkeit und
-            Vollstandigkeit der Informationen. Haftungsanspruche gegen den Autor
+            Der Autor übernimmt keinerlei Gewähr hinsichtlich der inhaltlichen
+            Richtigkeit, Genauigkeit, Aktualität, Zuverlässigkeit und
+            Vollständigkeit der Informationen. Haftungsansprüche gegen den Autor
             wegen Schaden materieller oder immaterieller Art, welche aus dem
-            Zugriff oder der Nutzung bzw. Nichtnutzung der veroffentlichten
-            Informationen entstanden sind, werden grundsatzlich ausgeschlossen.
+            Zugriff oder der Nutzung bzw. Nichtnutzung der veröffentlichten
+            Informationen entstanden sind, werden grundsätzlich ausgeschlossen.
           </p>
         </div>
         <div>

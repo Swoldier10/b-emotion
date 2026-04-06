@@ -8,7 +8,7 @@ export function ProjectsShowcase() {
   return (
     <section className="py-16 md:py-40 px-4 md:px-8 max-w-7xl mx-auto">
       <SectionHeading
-        title="AUSGEWAHLTE KUNDEN"
+        title="AUSGEWÄHLTE KUNDEN"
         subtitle="Vielfalt in der Zusammenarbeit."
       />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">

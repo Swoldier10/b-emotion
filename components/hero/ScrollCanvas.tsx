@@ -16,10 +16,31 @@ import {
   MotionValue,
 } from "framer-motion";
 
-const TOTAL_FRAMES = 120;
-
-const getFramePath = (index: number) =>
-  `/sequence/ezgif-frame-${String(index + 1).padStart(3, "0")}.png`;
+/* ------------------------------------------------------------------ */
+/*  Particle type                                                      */
+/* ------------------------------------------------------------------ */
+interface Particle {
+  /** Original position (logo pixel) */
+  ox: number;
+  oy: number;
+  /** Exploded target position */
+  tx: number;
+  ty: number;
+  /** Size */
+  size: number;
+  /** Random angle for explosion direction */
+  angle: number;
+  /** Distance multiplier for explosion */
+  dist: number;
+  /** Rotation speed */
+  rotSpeed: number;
+  /** Opacity variance */
+  alpha: number;
+  /** Delay factor (0-1) — inner particles detach later */
+  delay: number;
+  /** Color: 0 = yellow (#FFD100), 1 = blue (#6B8EAE), 2 = white */
+  color: number;
+}
 
 /* ------------------------------------------------------------------ */
 /*  Text overlay — fades in/out based on scroll progress              */
@@ -113,12 +134,167 @@ function ScrollHint({ progress }: { progress: MotionValue<number> }) {
 }
 
 /* ------------------------------------------------------------------ */
+/*  Easing helpers                                                     */
+/* ------------------------------------------------------------------ */
+function easeInOutCubic(t: number) {
+  return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Sample particles from logo image                                   */
+/* ------------------------------------------------------------------ */
+function sampleParticles(
+  img: HTMLImageElement,
+  canvasW: number,
+  canvasH: number
+): Particle[] {
+  const offscreen = document.createElement("canvas");
+  const ctx = offscreen.getContext("2d")!;
+
+  // Draw logo at a high sampling resolution for density
+  const sampleSize = 800;
+  const aspect = img.naturalWidth / img.naturalHeight;
+  const sw = aspect >= 1 ? sampleSize : Math.round(sampleSize * aspect);
+  const sh = aspect >= 1 ? Math.round(sampleSize / aspect) : sampleSize;
+  offscreen.width = sw;
+  offscreen.height = sh;
+
+  ctx.drawImage(img, 0, 0, sw, sh);
+  const imageData = ctx.getImageData(0, 0, sw, sh);
+  const data = imageData.data;
+
+  const particles: Particle[] = [];
+
+  // Logo center in canvas coordinates
+  const logoCenterX = canvasW / 2;
+  const logoCenterY = canvasH / 2;
+
+  // Crop margin — ignore outer edges to skip artifacts (sparkle, watermarks, etc.)
+  const marginX = Math.floor(sw * 0.25);
+  const marginY = Math.floor(sh * 0.18);
+
+  // Scale the CROPPED content area to fill the full viewport
+  const croppedW = sw - marginX * 2;
+  const croppedH = sh - marginY * 2;
+  const croppedAspect = croppedW / croppedH;
+  const canvasAspect = canvasW / canvasH;
+
+  // Scale factor: how much to scale the cropped region so it covers the viewport
+  let scale: number;
+  if (canvasAspect > croppedAspect) {
+    // Canvas is wider — fit cropped width to canvas width
+    scale = canvasW / croppedW;
+  } else {
+    // Canvas is taller — fit cropped height to canvas height
+    scale = canvasH / croppedH;
+  }
+
+  // Responsive scale: smaller on mobile, larger on desktop
+  const isMobile = canvasW < 768;
+  scale *= isMobile ? 0.55 : 0.85;
+  const logoDisplayW = sw * scale;
+  const logoDisplayH = sh * scale;
+  // Offset so the cropped content center aligns with canvas center
+  const croppedCenterX = (marginX + croppedW / 2) / sw;
+  const croppedCenterY = (marginY + croppedH / 2) / sh;
+  const logoOffsetX = logoCenterX - logoDisplayW * croppedCenterX;
+  const logoOffsetY = logoCenterY - logoDisplayH * croppedCenterY;
+
+  // Sampling gap — every pixel for high density, then we'll use tiny particles
+  const gap = 1;
+
+  for (let y = marginY; y < sh - marginY; y += gap) {
+    for (let x = marginX; x < sw - marginX; x += gap) {
+      const i = (y * sw + x) * 4;
+      const r = data[i];
+      const g = data[i + 1];
+      const b = data[i + 2];
+      const a = data[i + 3];
+
+      // Pick bright pixels (the white outlines of the logo)
+      const brightness = (r + g + b) / 3;
+      if (brightness > 80 && a > 100) {
+        // Extra filter: skip isolated bright pixels (artifacts)
+        // Check if at least 2 neighbors are also bright
+        let brightNeighbors = 0;
+        for (const [nx, ny] of [[x-3,y],[x+3,y],[x,y-3],[x,y+3],[x-2,y-2],[x+2,y+2]]) {
+          if (nx >= 0 && nx < sw && ny >= 0 && ny < sh) {
+            const ni = (ny * sw + nx) * 4;
+            if ((data[ni] + data[ni+1] + data[ni+2]) / 3 > 80) brightNeighbors++;
+          }
+        }
+        if (brightNeighbors < 2) continue;
+        // Map sample coordinates to canvas coordinates
+        const px = logoOffsetX + (x / sw) * logoDisplayW;
+        const py = logoOffsetY + (y / sh) * logoDisplayH;
+
+        // Distance from logo center (normalized 0-1)
+        const dx = px - logoCenterX;
+        const dy = py - logoCenterY;
+        const distFromCenter =
+          Math.sqrt(dx * dx + dy * dy) /
+          Math.sqrt(
+            (logoDisplayW / 2) ** 2 + (logoDisplayH / 2) ** 2
+          );
+
+        // Explosion direction — radiate from center with randomness
+        const baseAngle = Math.atan2(dy, dx);
+        const angle = baseAngle + (Math.random() - 0.5) * 1.5;
+        // Shorter explosion distance on mobile so particles stay on screen
+        const isMobileDevice = canvasW < 768;
+        const dist = isMobileDevice
+          ? 100 + Math.random() * 300
+          : 400 + Math.random() * 1200;
+
+        // Target exploded position
+        const tx = px + Math.cos(angle) * dist;
+        const ty = py + Math.sin(angle) * dist;
+
+        // Assign color: 40% yellow, 40% blue, 20% white
+        const colorRoll = Math.random();
+        const color = colorRoll < 0.4 ? 0 : colorRoll < 0.8 ? 1 : 2;
+
+        particles.push({
+          ox: px,
+          oy: py,
+          tx,
+          ty,
+          size: 0.8 + Math.random() * 1.5,
+          angle,
+          dist,
+          rotSpeed: (Math.random() - 0.5) * 0.02,
+          alpha: 0.6 + Math.random() * 0.4,
+          delay: distFromCenter * 0.3 + Math.random() * 0.15,
+          color,
+        });
+      }
+    }
+  }
+
+  // Cap at ~8000 particles for performance — randomly subsample if too many
+  const MAX_PARTICLES = 8000;
+  if (particles.length > MAX_PARTICLES) {
+    // Shuffle and take first MAX_PARTICLES
+    for (let i = particles.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [particles[i], particles[j]] = [particles[j], particles[i]];
+    }
+    particles.length = MAX_PARTICLES;
+  }
+
+  return particles;
+}
+
+/* ------------------------------------------------------------------ */
 /*  Main canvas component                                              */
 /* ------------------------------------------------------------------ */
 export function ScrollCanvas() {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const imagesRef = useRef<HTMLImageElement[]>([]);
+  const particlesRef = useRef<Particle[]>([]);
+  const logoImgRef = useRef<HTMLImageElement | null>(null);
+  const rafRef = useRef<number>(0);
+  const progressRef = useRef(0);
   const [loaded, setLoaded] = useState(false);
   const [loadProgress, setLoadProgress] = useState(0);
 
@@ -132,64 +308,52 @@ export function ScrollCanvas() {
     damping: 30,
   });
 
-  const frameIndex = useTransform(
-    smoothProgress,
-    [0, 1],
-    [0, TOTAL_FRAMES - 1]
-  );
-
-  // Preload all frames
+  // Load logo image and sample particles
   useEffect(() => {
-    let loadedCount = 0;
-    const images: HTMLImageElement[] = [];
+    const img = new Image();
+    img.crossOrigin = "anonymous";
+    img.src = "/logo-particle-source.png";
 
-    const loadImage = (index: number): Promise<void> =>
-      new Promise((resolve) => {
-        const img = new Image();
-        img.src = getFramePath(index);
-        img.onload = () => {
-          images[index] = img;
-          loadedCount++;
-          setLoadProgress(Math.round((loadedCount / TOTAL_FRAMES) * 100));
-          resolve();
-        };
-        img.onerror = () => {
-          loadedCount++;
-          setLoadProgress(Math.round((loadedCount / TOTAL_FRAMES) * 100));
-          resolve();
-        };
-      });
+    // Simulate loading progress
+    let fakeProgress = 0;
+    const progressInterval = setInterval(() => {
+      fakeProgress = Math.min(fakeProgress + Math.random() * 15, 90);
+      setLoadProgress(Math.round(fakeProgress));
+    }, 100);
 
-    const loadAll = async () => {
-      // Load in parallel batches of 15
-      const batchSize = 15;
-      for (let i = 0; i < TOTAL_FRAMES; i += batchSize) {
-        const batch = [];
-        for (let j = i; j < Math.min(i + batchSize, TOTAL_FRAMES); j++) {
-          batch.push(loadImage(j));
-        }
-        await Promise.all(batch);
-      }
-      imagesRef.current = images;
-      await new Promise((r) => setTimeout(r, 400));
+    img.onload = () => {
+      clearInterval(progressInterval);
+      logoImgRef.current = img;
+
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+
+      const dpr = window.devicePixelRatio || 1;
+      const w = canvas.clientWidth;
+      const h = canvas.clientHeight;
+      canvas.width = w * dpr;
+      canvas.height = h * dpr;
+
+      particlesRef.current = sampleParticles(img, w, h);
+
+      setLoadProgress(100);
+      setTimeout(() => setLoaded(true), 400);
+    };
+
+    img.onerror = () => {
+      clearInterval(progressInterval);
+      setLoadProgress(100);
       setLoaded(true);
     };
 
-    loadAll();
+    return () => clearInterval(progressInterval);
   }, []);
 
-  // Render frame on canvas — COVER fit (fills viewport, crops edges)
-  const renderFrame = useCallback((index: number) => {
+  // Render loop
+  const render = useCallback(() => {
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext("2d");
     if (!canvas || !ctx) return;
-
-    const frameIdx = Math.min(
-      Math.max(0, Math.round(index)),
-      TOTAL_FRAMES - 1
-    );
-    const img = imagesRef.current[frameIdx];
-    if (!img) return;
 
     const dpr = window.devicePixelRatio || 1;
     const w = canvas.clientWidth;
@@ -198,42 +362,146 @@ export function ScrollCanvas() {
     if (canvas.width !== w * dpr || canvas.height !== h * dpr) {
       canvas.width = w * dpr;
       canvas.height = h * dpr;
+      // Re-sample particles on resize
+      if (logoImgRef.current) {
+        particlesRef.current = sampleParticles(logoImgRef.current, w, h);
+      }
     }
 
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.clearRect(0, 0, w, h);
 
-    // COVER fit — fill entire canvas, crop overflow
-    const imgRatio = img.naturalWidth / img.naturalHeight;
-    const canvasRatio = w / h;
-    let drawW: number, drawH: number, drawX: number, drawY: number;
+    const progress = progressRef.current;
+    const particles = particlesRef.current;
 
-    if (canvasRatio > imgRatio) {
-      // Canvas is wider than image — match width, crop height
-      drawW = w;
-      drawH = w / imgRatio;
-      drawX = 0;
-      drawY = (h - drawH) / 2;
+    // Phase mapping:
+    // 0.00 – 0.05: logo holds still
+    // 0.05 – 0.85: logo fractures and particles scatter slowly (0 → 1)
+    // 0.85 – 1.00: fully scattered, particles drift gently
+    let particleProgress: number;
+    if (progress < 0.05) {
+      particleProgress = 0;
+    } else if (progress < 0.85) {
+      particleProgress = (progress - 0.05) / 0.80;
     } else {
-      // Canvas is taller than image — match height, crop width
-      drawH = h;
-      drawW = h * imgRatio;
-      drawX = (w - drawW) / 2;
-      drawY = 0;
+      particleProgress = 1;
     }
 
-    ctx.drawImage(img, drawX, drawY, drawW, drawH);
+    // Extra slow drift after full scatter
+    const postDrift = progress > 0.85 ? (progress - 0.85) / 0.15 : 0;
+
+    // Glow effect that appears during fracture
+    const glowIntensity =
+      particleProgress > 0 && particleProgress < 0.6
+        ? Math.sin(particleProgress * Math.PI) * 0.4
+        : 0;
+
+    // Color palette: yellow, blue, white
+    const COLORS = ["#FFD100", "#6B8EAE", "#FFFFFF"];
+
+    for (let i = 0; i < particles.length; i++) {
+      const p = particles[i];
+
+      // Each particle has its own delay before it starts moving
+      const adjustedProgress = Math.max(
+        0,
+        Math.min(1, (particleProgress - p.delay) / (1 - p.delay))
+      );
+      const easedProgress = easeInOutCubic(adjustedProgress);
+
+      // Interpolate position + post-scatter drift
+      let x = p.ox + (p.tx - p.ox) * easedProgress;
+      let y = p.oy + (p.ty - p.oy) * easedProgress;
+
+      // Continue drifting after full scatter (slower on mobile)
+      if (postDrift > 0) {
+        const driftDist = w < 768 ? 50 : 200;
+        x += Math.cos(p.angle) * postDrift * driftDist;
+        y += Math.sin(p.angle) * postDrift * driftDist;
+      }
+
+      // Skip particles fully offscreen
+      if (x < -100 || x > w + 100 || y < -100 || y > h + 100) continue;
+
+      // Particle alpha — stays visible throughout the entire scroll
+      // Reduce brightness on mobile so text remains readable
+      let alpha = p.alpha * (w < 768 ? 0.4 : 1);
+      // Very gentle fade only at the absolute end of the scroll
+      if (postDrift > 0.6) {
+        alpha *= Math.max(0.15, 1 - (postDrift - 0.6) / 0.4);
+      }
+      if (alpha < 0.01) continue;
+
+      // Size grows as particles separate
+      const size = p.size * (1 + easedProgress * 3);
+
+      ctx.globalAlpha = alpha;
+      ctx.fillStyle = COLORS[p.color];
+      ctx.fillRect(x - size / 2, y - size / 2, size, size);
+
+      // Glow halo during active fracture phase
+      if (glowIntensity > 0.05 && easedProgress > 0.02 && easedProgress < 0.6) {
+        const glow =
+          glowIntensity * (1 - Math.abs(easedProgress - 0.3) / 0.3);
+        if (glow > 0.03) {
+          ctx.globalAlpha = glow * 0.3;
+          ctx.fillRect(
+            x - size - 1,
+            y - size - 1,
+            size * 2 + 2,
+            size * 2 + 2
+          );
+        }
+      }
+    }
+
+    ctx.globalAlpha = 1;
+
+    // Shockwave ring at the moment of full separation
+    if (particleProgress > 0.4 && particleProgress < 0.75) {
+      const shockT = (particleProgress - 0.4) / 0.35;
+      const shockRadius = shockT * Math.min(w, h) * 0.5;
+      const shockAlpha = (1 - shockT) * 0.15;
+      ctx.beginPath();
+      ctx.arc(w / 2, h / 2, shockRadius, 0, Math.PI * 2);
+      ctx.strokeStyle = `rgba(255, 255, 255, ${shockAlpha})`;
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+    }
+
+    rafRef.current = requestAnimationFrame(render);
   }, []);
 
+  // Subscribe to scroll progress
   useEffect(() => {
     if (!loaded) return;
-    const unsubscribe = frameIndex.on("change", renderFrame);
-    renderFrame(0);
-    return unsubscribe;
-  }, [loaded, frameIndex, renderFrame]);
 
-  // Darken overlay that increases slightly as you scroll
-  const overlayOpacity = useTransform(smoothProgress, [0, 0.5, 1], [0.25, 0.35, 0.5]);
+    const unsubscribe = smoothProgress.on("change", (v) => {
+      progressRef.current = v;
+    });
+
+    rafRef.current = requestAnimationFrame(render);
+
+    return () => {
+      unsubscribe();
+      cancelAnimationFrame(rafRef.current);
+    };
+  }, [loaded, smoothProgress, render]);
+
+  // Darken overlay — stronger on mobile for text readability
+  const [isMobileView, setIsMobileView] = useState(false);
+  useEffect(() => {
+    const check = () => setIsMobileView(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  const overlayOpacity = useTransform(
+    smoothProgress,
+    [0, 0.5, 1],
+    isMobileView ? [0.5, 0.65, 0.7] : [0.1, 0.3, 0.5]
+  );
 
   return (
     <div ref={containerRef} className="relative h-[400vh]">
@@ -299,18 +567,19 @@ export function ScrollCanvas() {
         />
 
         {/* Vignette edges */}
-        <div className="absolute inset-0 z-10 pointer-events-none"
+        <div
+          className="absolute inset-0 z-10 pointer-events-none"
           style={{
             background:
               "radial-gradient(ellipse at center, transparent 50%, rgba(5,5,5,0.6) 100%)",
           }}
         />
 
-        {/* ---- Beat A: 0–20% — Opening statement ---- */}
+        {/* ---- Beat A: 0–15% — Opening statement ---- */}
         <TextOverlay
           progress={smoothProgress}
           startAt={0}
-          endAt={0.2}
+          endAt={0.15}
           position="center"
           visibleAtStart
         >
@@ -350,13 +619,14 @@ export function ScrollCanvas() {
                 EINER HAND.
               </h2>
               <p className="mt-5 text-lg md:text-xl text-white/60 font-light max-w-md">
-                Kein Spezialist fur eines — Ihr Partner fur alles. Im flexiblen Abo.
+                Kein Spezialist für eines — Ihr Partner für alles. Im flexiblen
+                Abo.
               </p>
             </div>
           </div>
         </TextOverlay>
 
-        {/* ---- Beat C: 50–70% — Your content, your story ---- */}
+        {/* ---- Beat C: 50–70% — Digitalize ---- */}
         <TextOverlay
           progress={smoothProgress}
           startAt={0.5}
@@ -371,7 +641,7 @@ export function ScrollCanvas() {
             IHR BUSINESS.
           </h2>
           <p className="mt-5 text-lg md:text-xl text-white/60 font-light max-w-md ml-auto">
-            Foto, Video, Design, Social Media — alles im Abo verfugbar.
+            Foto, Video, Design, Social Media — alles im Abo verfügbar.
           </p>
         </TextOverlay>
 
@@ -403,4 +673,10 @@ export function ScrollCanvas() {
       </div>
     </div>
   );
+}
+
+/* Helper for glow intensity per particle */
+function gowIntensity(globalGlow: number, easedProgress: number): number {
+  if (easedProgress < 0.05 || easedProgress > 0.6) return 0;
+  return globalGlow * (1 - Math.abs(easedProgress - 0.3) / 0.3);
 }

@@ -20,24 +20,24 @@ export const clientProjects: ClientProject[] = [
     slug: "vinodiverso",
     client: "VinoDiverso",
     description:
-      "Umfassende Content-Produktion fur die Weinhandlung VinoDiverso — von dynamischen Social-Media-Reels bis hin zu professioneller Produktfotografie fur den Online-Auftritt.",
+      "Umfassende Content-Produktion für die Weinhandlung VinoDiverso — von dynamischen Social-Media-Reels bis hin zu professioneller Produktfotografie für den Online-Auftritt.",
     period: "2024",
     categories: ["VIDEO", "FOTO"],
     projects: [
       {
         title: "Social-Media-Reel",
         category: "VIDEO",
-        excerpt: "Social-Media-Reel fur die Weinhandlung VinoDiverso.",
+        excerpt: "Social-Media-Reel für die Weinhandlung VinoDiverso.",
         description:
-          "Fur VinoDiverso haben wir ein dynamisches Reel produziert, das die Vielfalt des Weinsortiments in Szene setzt. Vom Konzept uber den Dreh bis zum Schnitt — alles aus einer Hand.",
+          "Für VinoDiverso haben wir ein dynamisches Reel produziert, das die Vielfalt des Weinsortiments in Szene setzt. Vom Konzept über den Dreh bis zum Schnitt — alles aus einer Hand.",
         services: ["Videoproduktion", "Schnitt", "Social-Media-Optimierung"],
       },
       {
         title: "Produktfotografie",
         category: "FOTO",
-        excerpt: "Professionelle Produktbilder fur den Online-Auftritt.",
+        excerpt: "Professionelle Produktbilder für den Online-Auftritt.",
         description:
-          "Hochwertige Produktfotografie fur das gesamte Weinsortiment von VinoDiverso. Die Bilder werden fur den Online-Shop, Social Media und Printmaterialien eingesetzt.",
+          "Hochwertige Produktfotografie für das gesamte Weinsortiment von VinoDiverso. Die Bilder werden für den Online-Shop, Social Media und Printmaterialien eingesetzt.",
         services: ["Produktfotografie", "Bildbearbeitung", "Styling"],
       },
     ],
@@ -46,7 +46,7 @@ export const clientProjects: ClientProject[] = [
     slug: "folienzuschnitt",
     client: "Folienzuschnitt.ch",
     description:
-      "Von Eventdokumentation uber Firmenprasentationen bis hin zum visuellen Markenauftritt — eine langjahrige Partnerschaft mit vielfaltigen Leistungen.",
+      "Von Eventdokumentation über Firmenpräsentationen bis hin zum visuellen Markenauftritt — eine langjährige Partnerschaft mit vielfältigen Leistungen.",
     period: "2023-2024",
     categories: ["VIDEO", "GRAFIK & DESIGN"],
     projects: [
@@ -55,16 +55,16 @@ export const clientProjects: ClientProject[] = [
         category: "VIDEO",
         excerpt: "Eventdokumentation und Zusammenfassung als Video.",
         description:
-          "Professionelle Videodokumentation eines Firmenevents von Folienzuschnitt.ch. Das Video dient als Ruckblick und Werbemittel fur zukunftige Veranstaltungen.",
+          "Professionelle Videodokumentation eines Firmenevents von Folienzuschnitt.ch. Das Video dient als Rückblick und Werbemittel für zukünftige Veranstaltungen.",
         services: ["Videoproduktion", "Eventdokumentation", "Schnitt"],
       },
       {
-        title: "Firmenprasentation",
+        title: "Firmenpräsentation",
         category: "GRAFIK & DESIGN",
-        excerpt: "Professionelle Firmenprasentation fur Kundentermine.",
+        excerpt: "Professionelle Firmenpräsentation für Kundentermine.",
         description:
-          "Eine massgeschneiderte Firmenprasentation fur Folienzuschnitt.ch, die bei Kundenterminen und Messen eingesetzt wird.",
-        services: ["Prasentationsdesign", "Corporate Design"],
+          "Eine massgeschneiderte Firmenpräsentation für Folienzuschnitt.ch, die bei Kundenterminen und Messen eingesetzt wird.",
+        services: ["Präsentationsdesign", "Corporate Design"],
       },
     ],
   },
@@ -72,7 +72,7 @@ export const clientProjects: ClientProject[] = [
     slug: "signvision",
     client: "Signvision Werbetechnik AG",
     description:
-      "Laufende Marketingunterstutzung uber mehrere Jahre — von Social-Media-Content uber Grafikdesign bis hin zu Fotoproduktionen. Ein Paradebeispiel fur das b-emotion Digitalpaket.",
+      "Laufende Marketingunterstützung über mehrere Jahre — von Social-Media-Content über Grafikdesign bis hin zu Fotoproduktionen. Ein Paradebeispiel für das b-emotion Digitalpaket.",
     period: "2022-2024",
     categories: ["SOCIAL MEDIA", "GRAFIK & DESIGN", "FOTO"],
     projects: [
@@ -81,23 +81,23 @@ export const clientProjects: ClientProject[] = [
         category: "SOCIAL MEDIA",
         excerpt: "Laufende Social-Media-Betreuung und Content-Erstellung.",
         description:
-          "Regelmasssige Erstellung von Social-Media-Content, Community Management und strategische Betreuung der Kanale.",
+          "Regelmässige Erstellung von Social-Media-Content, Community Management und strategische Betreuung der Kanäle.",
         services: ["Content-Erstellung", "Community Management", "Strategie"],
       },
       {
         title: "Grafikdesign",
         category: "GRAFIK & DESIGN",
-        excerpt: "Werbemittel und Grafiken fur Print und Digital.",
+        excerpt: "Werbemittel und Grafiken für Print und Digital.",
         description:
-          "Gestaltung von Werbemitteln, Flyern und digitalen Grafiken fur diverse Kampagnen und den taglichen Einsatz.",
+          "Gestaltung von Werbemitteln, Flyern und digitalen Grafiken für diverse Kampagnen und den täglichen Einsatz.",
         services: ["Grafikdesign", "Flyer", "Digitale Werbemittel"],
       },
       {
         title: "Fotoproduktion",
         category: "FOTO",
-        excerpt: "Produktfotografie und Teamfotos fur den Markenauftritt.",
+        excerpt: "Produktfotografie und Teamfotos für den Markenauftritt.",
         description:
-          "Professionelle Fotoproduktionen fur den visuellen Markenauftritt — von Produktfotos bis Teambilder.",
+          "Professionelle Fotoproduktionen für den visuellen Markenauftritt — von Produktfotos bis Teambilder.",
         services: ["Produktfotografie", "Teamfotos", "Bildbearbeitung"],
       },
     ],
@@ -106,16 +106,16 @@ export const clientProjects: ClientProject[] = [
     slug: "vinato",
     client: "Vinato",
     description:
-      "Gestaltung der kompletten Werbematerialien fur ein exklusives Wein-Event — von Flyern uber Social-Media-Grafiken bis hin zu Plakaten.",
+      "Gestaltung der kompletten Werbematerialien für ein exklusives Wein-Event — von Flyern über Social-Media-Grafiken bis hin zu Plakaten.",
     period: "2024",
     categories: ["GRAFIK & DESIGN"],
     projects: [
       {
         title: "Event-Werbung",
         category: "GRAFIK & DESIGN",
-        excerpt: "Werbematerialien fur ein exklusives Wein-Event.",
+        excerpt: "Werbematerialien für ein exklusives Wein-Event.",
         description:
-          "Gestaltung der kompletten Werbematerialien fur ein Vinato-Event — von Flyern uber Social-Media-Grafiken bis hin zu Plakaten.",
+          "Gestaltung der kompletten Werbematerialien für ein Vinato-Event — von Flyern über Social-Media-Grafiken bis hin zu Plakaten.",
         services: ["Flyer-Design", "Social-Media-Grafiken", "Plakatgestaltung"],
       },
     ],
@@ -124,17 +124,17 @@ export const clientProjects: ClientProject[] = [
     slug: "grueblerei",
     client: "GRUEBLEREI",
     description:
-      "Zum Jubilaum der GRUEBLEREI wurde eine hochwertige Broschure gestaltet, die die Geschichte und Meilensteine des Unternehmens erzahlt.",
+      "Zum Jubiläum der GRUEBLEREI wurde eine hochwertige Broschüre gestaltet, die die Geschichte und Meilensteine des Unternehmens erzählt.",
     period: "2023",
     categories: ["GRAFIK & DESIGN"],
     projects: [
       {
-        title: "Jubilaumsbroschure",
+        title: "Jubiläumsbroschüre",
         category: "GRAFIK & DESIGN",
-        excerpt: "Gestaltung einer hochwertigen Jubilaumsbroschure.",
+        excerpt: "Gestaltung einer hochwertigen Jubiläumsbroschüre.",
         description:
-          "Zum Jubilaum der GRUEBLEREI wurde eine hochwertige Broschure gestaltet, die die Geschichte und Meilensteine des Unternehmens erzahlt.",
-        services: ["Broschuren-Design", "Layout", "Druckvorbereitung"],
+          "Zum Jubiläum der GRUEBLEREI wurde eine hochwertige Broschüre gestaltet, die die Geschichte und Meilensteine des Unternehmens erzählt.",
+        services: ["Broschüren-Design", "Layout", "Druckvorbereitung"],
       },
     ],
   },
@@ -151,7 +151,7 @@ export const clientProjects: ClientProject[] = [
         category: "WEB",
         excerpt: "Die eigene Website als Referenzprojekt.",
         description:
-          "Die b-emotion Website wurde als Premium-Scrollytelling-Erlebnis entwickelt — mit animierten Sektionen, interaktivem Abo-Konfigurator und SEO-Optimierung fur den Schweizer Markt.",
+          "Die b-emotion Website wurde als Premium-Scrollytelling-Erlebnis entwickelt — mit animierten Sektionen, interaktivem Abo-Konfigurator und SEO-Optimierung für den Schweizer Markt.",
         services: ["Webdesign", "Entwicklung", "SEO", "Content"],
       },
     ],

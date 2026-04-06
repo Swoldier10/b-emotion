@@ -41,7 +41,7 @@ export function CookieConsent() {
                 href="/datenschutz"
                 className="text-teal underline underline-offset-2"
               >
-                Datenschutzerklarung
+                Datenschutzerklärung
               </a>
               .
             </p>

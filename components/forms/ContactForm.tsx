@@ -30,7 +30,7 @@ export function ContactForm() {
             <Check size={32} className="text-primary" />
           </div>
           <h3 className="text-2xl font-black text-white">
-            VIELEN DANK FUR IHRE NACHRICHT!
+            VIELEN DANK FÜR IHRE NACHRICHT!
           </h3>
           <p className="mt-3 text-body-text">
             Ich melde mich innerhalb von 24 Stunden bei Ihnen.

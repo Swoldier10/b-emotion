@@ -21,9 +21,9 @@ export function CtaBanner() {
 
         <FadeIn delay={0.3}>
           <p className="mt-8 text-body-text text-lg md:text-xl leading-relaxed max-w-2xl mx-auto font-light">
-            Ich bin Ihr Sparring-Partner fur die Verwirklichung Ihrer Visionen —
-            von Grafik- und Designaufgaben uber Foto- und Videoproduktion bis
-            hin zur Betreuung Ihrer Social-Media-Kanale.
+            Ich bin Ihr Sparring-Partner für die Verwirklichung Ihrer Visionen —
+            von Grafik- und Designaufgaben über Foto- und Videoproduktion bis
+            hin zur Betreuung Ihrer Social-Media-Kanäle.
           </p>
         </FadeIn>
 

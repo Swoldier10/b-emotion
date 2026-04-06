@@ -2,20 +2,20 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "AGB | b-emotion",
-  description: "Allgemeine Geschaftsbedingungen von b-emotion, Marc Baumann.",
+  description: "Allgemeine Geschäftsbedingungen von b-emotion, Marc Baumann.",
 };
 
 export default function AGBPage() {
   return (
     <div className="min-h-[70vh] pt-32 pb-20 px-4 md:px-8 max-w-3xl mx-auto">
       <h1 className="text-4xl md:text-5xl font-black text-white mb-8">
-        ALLGEMEINE GESCHAFTSBEDINGUNGEN
+        ALLGEMEINE GESCHÄFTSBEDINGUNGEN
       </h1>
       <div className="space-y-6 text-body-text leading-relaxed">
         <div>
           <h2 className="text-lg font-bold text-white mb-2">1. GELTUNGSBEREICH</h2>
           <p>
-            Diese Allgemeinen Geschaftsbedingungen gelten fur alle
+            Diese Allgemeinen Geschäftsbedingungen gelten für alle
             Dienstleistungen und Lieferungen von b-emotion, Marc Baumann,
             Bettenstrasse 19, CH-9212 Arnegg SG.
           </p>
@@ -24,8 +24,8 @@ export default function AGBPage() {
           <h2 className="text-lg font-bold text-white mb-2">2. LEISTUNGEN</h2>
           <p>
             Der Umfang der Leistungen ergibt sich aus der jeweiligen
-            Auftragsbestatigung oder dem Abo-Vertrag. Anderungen und
-            Erweiterungen bedurfen der schriftlichen Vereinbarung.
+            Auftragsbestätigung oder dem Abo-Vertrag. Änderungen und
+            Erweiterungen bedürfen der schriftlichen Vereinbarung.
           </p>
         </div>
         <div>
@@ -39,25 +39,25 @@ export default function AGBPage() {
         <div>
           <h2 className="text-lg font-bold text-white mb-2">4. ABO-MODELL</h2>
           <p>
-            Das Abo-Modell ist monatlich kundbar. Die Kundigung muss schriftlich
-            oder per E-Mail bis zum 15. des laufenden Monats fur den Folgemonat
+            Das Abo-Modell ist monatlich kündbar. Die Kündigung muss schriftlich
+            oder per E-Mail bis zum 15. des laufenden Monats für den Folgemonat
             erfolgen. Anpassungen des Umfangs sind jederzeit zum Folgemonat
-            moglich.
+            möglich.
           </p>
         </div>
         <div>
           <h2 className="text-lg font-bold text-white mb-2">5. URHEBERRECHT</h2>
           <p>
             Alle von b-emotion erstellten Werke (Designs, Texte, Fotos, Videos)
-            gehen nach vollstandiger Bezahlung in das Eigentum des Auftraggebers
-            uber, sofern nicht anders vereinbart. b-emotion behalt das Recht,
+            gehen nach vollständiger Bezahlung in das Eigentum des Auftraggebers
+            über, sofern nicht anders vereinbart. b-emotion behält das Recht,
             die Arbeiten als Referenz zu verwenden.
           </p>
         </div>
         <div>
           <h2 className="text-lg font-bold text-white mb-2">6. HAFTUNG</h2>
           <p>
-            b-emotion haftet nicht fur Schaden, die durch hohere Gewalt,
+            b-emotion haftet nicht für Schaden, die durch höhere Gewalt,
             Handlungen Dritter oder die Nichteinhaltung von Mitwirkungspflichten
             des Auftraggebers entstehen.
           </p>

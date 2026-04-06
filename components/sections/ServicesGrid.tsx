@@ -42,8 +42,8 @@ export function ServicesGrid({ showHeading = true }: { showHeading?: boolean }) 
             />
             <FadeIn>
               <p className="text-center text-body-text text-base md:text-lg leading-relaxed max-w-3xl mx-auto mb-14 md:mb-20 font-light -mt-4 md:-mt-8">
-                Kein Spezialist fur ein einzelnes Gebiet — sondern Ihr
-                kompletter Marketing-Partner. Von Grafik uber Foto und Video bis
+                Kein Spezialist für ein einzelnes Gebiet — sondern Ihr
+                kompletter Marketing-Partner. Von Grafik über Foto und Video bis
                 hin zu Social Media und Webdesign. Alles aus einer Hand, im
                 flexiblen Abo.
               </p>

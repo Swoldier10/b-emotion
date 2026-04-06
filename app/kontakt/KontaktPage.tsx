@@ -35,23 +35,23 @@ const benefits = [
 const faqs = [
   {
     q: "Wie lange ist die Mindestlaufzeit?",
-    a: "Es gibt keine. Sie konnen monatlich kundigen.",
+    a: "Es gibt keine. Sie können monatlich kündigen.",
   },
   {
-    q: "Kann ich den Umfang andern?",
+    q: "Kann ich den Umfang ändern?",
     a: "Ja, jederzeit zum Folgemonat.",
   },
   {
     q: "Was passiert mit ungenutztem Budget?",
-    a: "Wir besprechen gemeinsam, wie wir die Ressourcen optimal einsetzen. Ungenutzte Kapazitaten konnen in den Folgemonat ubertragen werden.",
+    a: "Wir besprechen gemeinsam, wie wir die Ressourcen optimal einsetzen. Ungenutzte Kapazitäten können in den Folgemonat übertragen werden.",
   },
   {
     q: "Wie schnell kann ich starten?",
-    a: "Nach einem kurzen Kennenlernen konnen wir in der Regel innerhalb einer Woche loslegen.",
+    a: "Nach einem kurzen Kennenlernen können wir in der Regel innerhalb einer Woche loslegen.",
   },
   {
     q: "Was kostet ein Abo?",
-    a: "Die Kosten richten sich nach Ihren Bedurfnissen. Konfigurieren Sie Ihr Abo oben oder kontaktieren Sie mich fur ein individuelles Angebot.",
+    a: "Die Kosten richten sich nach Ihren Bedürfnissen. Konfigurieren Sie Ihr Abo oben oder kontaktieren Sie mich für ein individuelles Angebot.",
   },
 ];
 
@@ -139,7 +139,7 @@ export function KontaktPage({ defaultTab = "kontakt" }: { defaultTab?: Tab }) {
                 >
                   <FadeIn>
                     <p className="text-body-text text-sm leading-relaxed mb-6">
-                      Wahlen Sie die Leistungen, die Sie benotigen, und
+                      Wählen Sie die Leistungen, die Sie benötigen, und
                       konfigurieren Sie Ihr massgeschneidertes Abo. Flexibel,
                       ohne Mindestlaufzeit.
                     </p>
@@ -235,7 +235,7 @@ export function KontaktPage({ defaultTab = "kontakt" }: { defaultTab?: Tab }) {
 
       {/* FAQ */}
       <section className="py-16 md:py-24 px-4 md:px-8 max-w-3xl mx-auto">
-        <SectionHeading title="HAUFIGE FRAGEN" />
+        <SectionHeading title="HÄUFIGE FRAGEN" />
         <div className="space-y-3">
           {faqs.map((faq, i) => (
             <FadeIn key={i} delay={i * 0.05}>

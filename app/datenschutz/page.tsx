@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Datenschutz | b-emotion",
-  description: "Datenschutzerklarung von b-emotion, Marc Baumann. Informationen zum Schutz Ihrer personenbezogenen Daten.",
+  description: "Datenschutzerklärung von b-emotion, Marc Baumann. Informationen zum Schutz Ihrer personenbezogenen Daten.",
 };
 
 export default function DatenschutzPage() {
@@ -29,10 +29,10 @@ export default function DatenschutzPage() {
             ALLGEMEINER HINWEIS
           </h2>
           <p>
-            Gestutzt auf Artikel 13 der Schweizerischen Bundesverfassung und die
+            Gestützt auf Artikel 13 der Schweizerischen Bundesverfassung und die
             datenschutzrechtlichen Bestimmungen des Bundes hat jede Person
-            Anspruch auf Schutz ihrer Privatsphare sowie auf Schutz vor
-            Missbrauch ihrer personlichen Daten. Wir halten diese Bestimmungen
+            Anspruch auf Schutz ihrer Privatsphäre sowie auf Schutz vor
+            Missbrauch ihrer persönlichen Daten. Wir halten diese Bestimmungen
             ein.
           </p>
         </div>
@@ -44,7 +44,7 @@ export default function DatenschutzPage() {
             Beim Zugriff auf unsere Website werden automatisch Daten allgemeiner
             Natur erfasst. Diese Daten (Server-Logfiles) umfassen z.B. die Art
             des Webbrowsers, das verwendete Betriebssystem, den Domainnamen
-            Ihres Internet-Service-Providers und ahnliche Daten.
+            Ihres Internet-Service-Providers und ähnliche Daten.
           </p>
         </div>
         <div>
@@ -53,7 +53,7 @@ export default function DatenschutzPage() {
             Unsere Website verwendet Cookies. Cookies richten auf Ihrem Rechner
             keinen Schaden an und enthalten keine Viren. Cookies dienen dazu,
             unser Angebot nutzerfreundlicher und effektiver zu gestalten. Sie
-            konnen Ihren Browser so einstellen, dass Sie uber das Setzen von
+            können Ihren Browser so einstellen, dass Sie über das Setzen von
             Cookies informiert werden.
           </p>
         </div>
@@ -69,10 +69,10 @@ export default function DatenschutzPage() {
         <div>
           <h2 className="text-lg font-bold text-white mb-2">IHRE RECHTE</h2>
           <p>
-            Sie haben jederzeit das Recht, unentgeltlich Auskunft uber Herkunft,
-            Empfanger und Zweck Ihrer gespeicherten personenbezogenen Daten zu
+            Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft,
+            Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu
             erhalten. Sie haben ausserdem ein Recht, die Berichtigung oder
-            Loschung dieser Daten zu verlangen. Hierzu konnen Sie sich jederzeit
+            Löschung dieser Daten zu verlangen. Hierzu können Sie sich jederzeit
             an uns wenden.
           </p>
         </div>

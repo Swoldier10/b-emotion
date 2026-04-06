@@ -17,9 +17,9 @@ const nunitoSans = Nunito_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "b-emotion | Content, Grafik & Digital fur KMU",
+  title: "b-emotion | Content, Grafik & Digital für KMU",
   description:
-    "b-emotion steht fur Grafik & Design, Foto & Video, Social Media Management, Marketing-Beratung, Newsletter-Erstellung. Online und offline. Auch im Abo.",
+    "b-emotion steht für Grafik & Design, Foto & Video, Social Media Management, Marketing-Beratung, Newsletter-Erstellung. Online und offline. Auch im Abo.",
   metadataBase: new URL("https://b-emotion.ch"),
   alternates: {
     canonical: "/",
@@ -30,9 +30,9 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "b-emotion | Content, Grafik & Digital fur KMU",
+    title: "b-emotion | Content, Grafik & Digital für KMU",
     description:
-      "b-emotion steht fur Grafik & Design, Foto & Video, Social Media Management, Marketing-Beratung, Newsletter-Erstellung. Online und offline. Auch im Abo.",
+      "b-emotion steht für Grafik & Design, Foto & Video, Social Media Management, Marketing-Beratung, Newsletter-Erstellung. Online und offline. Auch im Abo.",
     url: "https://b-emotion.ch",
     siteName: "b-emotion",
     locale: "de_CH",
@@ -42,13 +42,13 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "b-emotion — Content, Grafik & Digital fur KMU in der Schweiz",
+        alt: "b-emotion — Content, Grafik & Digital für KMU in der Schweiz",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "b-emotion | Content, Grafik & Digital fur KMU",
+    title: "b-emotion | Content, Grafik & Digital für KMU",
     description:
       "Grafik & Design, Foto & Video, Social Media, Marketing-Beratung — alles aus einer Hand. Auch im Abo.",
     images: ["/og-image.png"],
@@ -66,7 +66,7 @@ export default function RootLayout({
     "@type": "LocalBusiness",
     name: "b-emotion",
     description:
-      "Content, Grafik & Digital — Marketing-Agentur fur KMU in der Schweiz",
+      "Content, Grafik & Digital — Marketing-Agentur für KMU in der Schweiz",
     url: "https://b-emotion.ch",
     telephone: "+41765646273",
     email: "mail@b-emotion.ch",

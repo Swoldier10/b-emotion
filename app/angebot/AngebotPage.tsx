@@ -11,7 +11,7 @@ export function AngebotPage() {
     <>
       <PageHero
         title="ANGEBOT"
-        subtitle="Ein Paket fur Ihre komplette Digitalisierung — im flexiblen Abo."
+        subtitle="Ein Paket für Ihre komplette Digitalisierung — im flexiblen Abo."
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Angebot" }]}
       />
       <ServicesGrid showHeading={false} />

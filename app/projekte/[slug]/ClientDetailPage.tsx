@@ -185,7 +185,7 @@ export function ClientDetailPage({ client }: { client: ClientProject }) {
       <section className="py-20 md:py-32 bg-primary text-center">
         <div className="max-w-3xl mx-auto px-4">
           <h2 className="text-3xl md:text-5xl font-black text-dark leading-[0.95]">
-            AHNLICHES FUR IHR UNTERNEHMEN?
+            ÄHNLICHES FÜR IHR UNTERNEHMEN?
           </h2>
           <p className="mt-6 text-dark/60 text-lg max-w-xl mx-auto leading-relaxed">
             Lassen Sie uns gemeinsam Ihr massgeschneidertes Digitalpaket

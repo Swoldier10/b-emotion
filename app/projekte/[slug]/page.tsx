@@ -19,16 +19,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!client) return {};
 
   return {
-    title: `${client.client} | b-emotion — Projektubersicht`,
+    title: `${client.client} | b-emotion — Projektübersicht`,
     description: client.description,
     alternates: { canonical: `/projekte/${slug}` },
     openGraph: {
-      title: `${client.client} | b-emotion — Projektubersicht`,
+      title: `${client.client} | b-emotion — Projektübersicht`,
       description: client.description,
     },
     twitter: {
       card: "summary",
-      title: `${client.client} | b-emotion — Projektubersicht`,
+      title: `${client.client} | b-emotion — Projektübersicht`,
       description: client.description,
     },
   };

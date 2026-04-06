@@ -19,7 +19,7 @@ export function ProjektePage() {
     <>
       <PageHero
         title="PROJEKTE"
-        subtitle="Fur jeden Kunden ein massgeschneidertes Paket."
+        subtitle="Für jeden Kunden ein massgeschneidertes Paket."
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Projekte" }]}
       />
 

@@ -11,7 +11,7 @@ export function AboutTeaser() {
     <section className="relative py-16 md:py-40 px-4 md:px-8 max-w-7xl mx-auto overflow-hidden">
       {/* Teal ambient glow behind image area */}
       <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-teal/[0.04] rounded-full blur-[150px] pointer-events-none" />
-      <SectionHeading title="UBER MICH" align="left" />
+      <SectionHeading title="ÜBER MICH" align="left" />
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         <ParallaxSection offset={30}>
           <div className="relative">
@@ -32,13 +32,13 @@ export function AboutTeaser() {
         <FadeIn direction="left">
           <div className="space-y-6">
             <p className="text-body-text text-lg md:text-xl leading-relaxed font-light">
-              Mein Name ist Marc Baumann, und meine Leidenschaft fur Grafik und
+              Mein Name ist Marc Baumann, und meine Leidenschaft für Grafik und
               Marketing begleitet mich bereits seit meiner Ausbildung zum
               Polygrafen EFZ.
             </p>
             <p className="text-body-text text-lg md:text-xl leading-relaxed font-light">
-              Seit dem 1. Januar 2025 widme ich mich vollstandig b-emotion. Mein
-              Ziel ist es, kleinen Unternehmen eine zentrale Anlaufstelle fur
+              Seit dem 1. Januar 2025 widme ich mich vollständig b-emotion. Mein
+              Ziel ist es, kleinen Unternehmen eine zentrale Anlaufstelle für
               Marketing zu bieten.
             </p>
             <Link

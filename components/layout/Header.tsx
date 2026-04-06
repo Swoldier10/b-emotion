@@ -12,7 +12,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/angebot", label: "Angebot" },
   { href: "/projekte", label: "Projekte" },
-  { href: "/ueber-mich", label: "Uber mich" },
+  { href: "/ueber-mich", label: "Über mich" },
 ];
 
 export function Header() {
@@ -76,7 +76,7 @@ export function Header() {
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="md:hidden flex flex-col items-center justify-center w-10 h-10 gap-1.5"
-            aria-label={mobileOpen ? "Menu schliessen" : "Menu offnen"}
+            aria-label={mobileOpen ? "Menü schliessen" : "Menü öffnen"}
             aria-expanded={mobileOpen}
           >
             <motion.span
