@@ -14,7 +14,7 @@ export function MobileCTA() {
 
   return (
     <motion.div
-      className="fixed bottom-6 left-4 right-4 z-[80] md:hidden"
+      className="fixed bottom-6 left-4 right-4 z-[80] md:hidden will-change-transform"
       initial={{ y: 100, opacity: 0 }}
       animate={show ? { y: 0, opacity: 1 } : { y: 100, opacity: 0 }}
       transition={{ duration: 0.3 }}

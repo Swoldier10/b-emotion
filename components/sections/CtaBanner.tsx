@@ -9,8 +9,8 @@ export function CtaBanner() {
   return (
     <section className="relative py-16 md:py-40 overflow-hidden bg-gradient-to-b from-[#050505] via-teal/[0.06] to-[#050505]">
       {/* Dual ambient glow — teal atmosphere + warm yellow near CTAs */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-teal/[0.06] rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[400px] h-[300px] bg-primary/[0.03] rounded-full blur-[100px] pointer-events-none" />
+      <div className="hidden md:block absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-teal/[0.06] rounded-full blur-[140px] pointer-events-none" />
+      <div className="hidden md:block absolute bottom-0 left-1/2 -translate-x-1/2 w-[400px] h-[300px] bg-primary/[0.03] rounded-full blur-[100px] pointer-events-none" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 md:px-8 text-center">
         <TextReveal

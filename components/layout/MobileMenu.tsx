@@ -23,7 +23,7 @@ export function MobileMenu({ onClose }: MobileMenuProps) {
 
   return (
     <motion.div
-      className="fixed inset-0 z-40 bg-bg-page/95 backdrop-blur-lg flex flex-col items-center justify-center"
+      className="fixed inset-0 z-40 bg-bg-page flex flex-col items-center justify-center"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}

@@ -10,6 +10,9 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
     ).matches;
     if (prefersReducedMotion) return;
 
+    // Disable Lenis on mobile — native scroll is faster and smoother
+    if (window.innerWidth < 768) return;
+
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),

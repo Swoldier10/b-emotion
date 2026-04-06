@@ -21,7 +21,16 @@ export function Header() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 100);
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 100);
+          ticking = false;
+        });
+      }
+    };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -35,7 +44,7 @@ export function Header() {
       <motion.header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? "bg-bg-page/90 backdrop-blur-lg border-b border-white/5"
+            ? "bg-bg-page/95 md:bg-bg-page/90 md:backdrop-blur-lg border-b border-white/5"
             : "bg-transparent"
         }`}
         initial={{ y: -100 }}

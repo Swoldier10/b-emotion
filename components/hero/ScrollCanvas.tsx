@@ -601,7 +601,7 @@ export function ScrollCanvas() {
           visibleAtStart
         >
           <motion.h1
-            className="text-5xl md:text-7xl lg:text-[6.5rem] xl:text-[8rem] font-black text-white leading-[0.95] tracking-tight drop-shadow-2xl"
+            className="text-5xl md:text-7xl lg:text-[6.5rem] xl:text-[8rem] font-black text-white leading-[0.95] tracking-tight md:drop-shadow-2xl"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2, duration: 0.8 }}
@@ -630,7 +630,7 @@ export function ScrollCanvas() {
           <div className="flex items-stretch gap-5">
             <div className="w-1 bg-primary rounded-full shrink-0" />
             <div>
-              <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[0.95] drop-shadow-2xl">
+              <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[0.95] md:drop-shadow-2xl">
                 ALLES AUS
                 <br />
                 EINER HAND.
@@ -650,7 +650,7 @@ export function ScrollCanvas() {
           endAt={0.7}
           position="right"
         >
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[0.95] drop-shadow-2xl">
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[0.95] md:drop-shadow-2xl">
             WIR
             <br />
             <span className="text-primary">DIGITALISIEREN</span>
@@ -669,7 +669,7 @@ export function ScrollCanvas() {
           endAt={0.95}
           position="center"
         >
-          <h2 className="text-6xl md:text-8xl lg:text-[10rem] font-black text-white leading-[0.9] drop-shadow-2xl">
+          <h2 className="text-6xl md:text-8xl lg:text-[10rem] font-black text-white leading-[0.9] md:drop-shadow-2xl">
             BEREIT?
           </h2>
           <p className="mt-6 text-lg md:text-xl text-white/60 font-light">

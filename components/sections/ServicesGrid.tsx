@@ -32,7 +32,7 @@ export function ServicesGrid({ showHeading = true }: { showHeading?: boolean }) 
   return (
     <section className="relative py-16 md:py-40 px-4 md:px-8 overflow-hidden">
       {/* Teal ambient glow top-right */}
-      <div className="absolute -top-32 -right-32 w-[500px] h-[500px] bg-teal/[0.03] rounded-full blur-[150px] pointer-events-none" />
+      <div className="hidden md:block absolute -top-32 -right-32 w-[500px] h-[500px] bg-teal/[0.03] rounded-full blur-[150px] pointer-events-none" />
       <div className="max-w-7xl mx-auto">
         {showHeading && (
           <>

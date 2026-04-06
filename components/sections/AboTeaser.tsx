@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { FadeIn } from "@/components/animations/FadeIn";
 import {
   StaggerChildren,
@@ -28,12 +28,17 @@ const aboServices = [
 
 export function AboTeaser() {
   const ref = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "center center"],
   });
-  const scale = useTransform(scrollYProgress, [0, 1], [0.92, 1]);
-  const borderRadius = useTransform(scrollYProgress, [0, 1], [40, 0]);
+  // On mobile: skip borderRadius animation (non-compositable, causes layout thrash)
+  const scale = useTransform(scrollYProgress, [0, 1], [isMobile ? 1 : 0.92, 1]);
+  const borderRadius = useTransform(scrollYProgress, [0, 1], isMobile ? [16, 16] : [40, 0]);
 
   return (
     <section ref={ref} className="py-4 md:py-8 px-4 md:px-0">
