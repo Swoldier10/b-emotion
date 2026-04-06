@@ -259,7 +259,7 @@ function sampleParticles(
           oy: py,
           tx,
           ty,
-          size: 0.8 + Math.random() * 1.5,
+          size: isMobileDevice ? 1.2 + Math.random() * 2 : 0.8 + Math.random() * 1.5,
           angle,
           dist,
           rotSpeed: (Math.random() - 0.5) * 0.02,
@@ -271,8 +271,8 @@ function sampleParticles(
     }
   }
 
-  // Cap at ~8000 particles for performance — randomly subsample if too many
-  const MAX_PARTICLES = 8000;
+  // Cap particles — fewer on mobile for smooth 60fps
+  const MAX_PARTICLES = canvasW < 768 ? 3000 : 8000;
   if (particles.length > MAX_PARTICLES) {
     // Shuffle and take first MAX_PARTICLES
     for (let i = particles.length - 1; i > 0; i--) {
@@ -303,10 +303,16 @@ export function ScrollCanvas() {
     offset: ["start start", "end end"],
   });
 
-  const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-  });
+  // Lighter spring on mobile for smoother feel
+  const [isMobileDevice, setIsMobileDevice] = useState(false);
+  useEffect(() => {
+    setIsMobileDevice(window.innerWidth < 768);
+  }, []);
+
+  const smoothProgress = useSpring(scrollYProgress, isMobileDevice
+    ? { stiffness: 200, damping: 50, mass: 0.5 }
+    : { stiffness: 100, damping: 30 }
+  );
 
   // Load logo image and sample particles
   useEffect(() => {
@@ -349,11 +355,22 @@ export function ScrollCanvas() {
     return () => clearInterval(progressInterval);
   }, []);
 
+  // Track last rendered progress to skip unnecessary frames
+  const lastRenderedProgress = useRef(-1);
+
   // Render loop
   const render = useCallback(() => {
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext("2d");
     if (!canvas || !ctx) return;
+
+    // Skip render if progress hasn't changed (saves GPU on mobile)
+    const currentProgress = progressRef.current;
+    if (Math.abs(currentProgress - lastRenderedProgress.current) < 0.0005) {
+      rafRef.current = requestAnimationFrame(render);
+      return;
+    }
+    lastRenderedProgress.current = currentProgress;
 
     const dpr = window.devicePixelRatio || 1;
     const w = canvas.clientWidth;
@@ -425,7 +442,7 @@ export function ScrollCanvas() {
 
       // Particle alpha — stays visible throughout the entire scroll
       // Reduce brightness on mobile so text remains readable
-      let alpha = p.alpha * (w < 768 ? 0.4 : 1);
+      let alpha = p.alpha * (w < 768 ? 0.55 : 1);
       // Very gentle fade only at the absolute end of the scroll
       if (postDrift > 0.6) {
         alpha *= Math.max(0.15, 1 - (postDrift - 0.6) / 0.4);
@@ -439,8 +456,8 @@ export function ScrollCanvas() {
       ctx.fillStyle = COLORS[p.color];
       ctx.fillRect(x - size / 2, y - size / 2, size, size);
 
-      // Glow halo during active fracture phase
-      if (glowIntensity > 0.05 && easedProgress > 0.02 && easedProgress < 0.6) {
+      // Glow halo during active fracture phase (skip on mobile for performance)
+      if (w >= 768 && glowIntensity > 0.05 && easedProgress > 0.02 && easedProgress < 0.6) {
         const glow =
           glowIntensity * (1 - Math.abs(easedProgress - 0.3) / 0.3);
         if (glow > 0.03) {
@@ -500,7 +517,7 @@ export function ScrollCanvas() {
   const overlayOpacity = useTransform(
     smoothProgress,
     [0, 0.5, 1],
-    isMobileView ? [0.5, 0.65, 0.7] : [0.1, 0.3, 0.5]
+    isMobileView ? [0.35, 0.5, 0.6] : [0.1, 0.3, 0.5]
   );
 
   return (
