@@ -165,9 +165,13 @@ function sampleParticles(
 
   const particles: Particle[] = [];
 
-  // Logo center in canvas coordinates
-  const logoCenterX = canvasW / 2;
-  const logoCenterY = canvasH / 2;
+  // Logo center in canvas coordinates — interpolate based on viewport width
+  // Narrow (<768): center at 50% so logo stays visible
+  // Medium (~1024): transition towards left
+  // Wide (>=1440): fully left at 28%
+  const t = Math.min(1, Math.max(0, (canvasW - 768) / (1440 - 768)));
+  const logoCenterX = canvasW * (0.5 - t * 0.22); // 0.50 → 0.28
+  const logoCenterY = canvasH * (0.48 - t * 0.04); // 0.48 → 0.44
 
   // Crop margin — ignore outer edges to skip artifacts (sparkle, watermarks, etc.)
   const marginX = Math.floor(sw * 0.25);
@@ -189,9 +193,11 @@ function sampleParticles(
     scale = canvasH / croppedH;
   }
 
-  // Responsive scale: smaller on mobile, larger on desktop
+  // Responsive scale: smoothly interpolate based on viewport width
+  // Mobile (<768): 0.55, narrow desktop (~768): 0.7, wide (>=1440): 1.0
   const isMobile = canvasW < 768;
-  scale *= isMobile ? 0.55 : 0.85;
+  const scaleT = Math.min(1, Math.max(0, (canvasW - 768) / (1440 - 768)));
+  scale *= isMobile ? 0.55 : (0.7 + scaleT * 0.3);
   const logoDisplayW = sw * scale;
   const logoDisplayH = sh * scale;
   // Offset so the cropped content center aligns with canvas center
@@ -225,8 +231,17 @@ function sampleParticles(
         }
         if (brightNeighbors < 2) continue;
         // Map sample coordinates to canvas coordinates
-        const px = logoOffsetX + (x / sw) * logoDisplayW;
-        const py = logoOffsetY + (y / sh) * logoDisplayH;
+        let px = logoOffsetX + (x / sw) * logoDisplayW;
+        let py = logoOffsetY + (y / sh) * logoDisplayH;
+
+        // Rotate -20 degrees (counter-clockwise) around logo center
+        const rotAngle = -45 * (Math.PI / 180);
+        const cosR = Math.cos(rotAngle);
+        const sinR = Math.sin(rotAngle);
+        const rpx = px - logoCenterX;
+        const rpy = py - logoCenterY;
+        px = logoCenterX + rpx * cosR - rpy * sinR;
+        py = logoCenterY + rpx * sinR + rpy * cosR;
 
         // Distance from logo center (normalized 0-1)
         const dx = px - logoCenterX;
@@ -480,7 +495,8 @@ export function ScrollCanvas() {
       const shockRadius = shockT * Math.min(w, h) * 0.5;
       const shockAlpha = (1 - shockT) * 0.15;
       ctx.beginPath();
-      ctx.arc(w / 2, h / 2, shockRadius, 0, Math.PI * 2);
+      const st = Math.min(1, Math.max(0, (w - 768) / (1440 - 768)));
+      ctx.arc(w * (0.5 - st * 0.22), h * (0.48 - st * 0.04), shockRadius, 0, Math.PI * 2);
       ctx.strokeStyle = `rgba(255, 255, 255, ${shockAlpha})`;
       ctx.lineWidth = 1.5;
       ctx.stroke();
@@ -606,9 +622,9 @@ export function ScrollCanvas() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2, duration: 0.8 }}
           >
-            IHR KOMPLETTES
+            GRAFIK. DESIGN.
             <br />
-            <span className="text-primary">DIGITALPAKET.</span>
+            <span className="text-primary">CONTENT.</span> DIGITAL.
           </motion.p>
           <motion.p
             className="mt-6 md:mt-8 text-lg md:text-2xl text-white/70 font-light tracking-wide"
@@ -616,7 +632,7 @@ export function ScrollCanvas() {
             animate={{ opacity: 1 }}
             transition={{ delay: 1.8, duration: 0.6 }}
           >
-            Grafik, Foto, Video, Web & Social Media — alles in einem Abo.
+            Kreative Lösungen für starke Auftritte – online und offline.
           </motion.p>
         </TextOverlay>
 
@@ -636,8 +652,9 @@ export function ScrollCanvas() {
                 EINER HAND.
               </h2>
               <p className="mt-5 text-lg md:text-xl text-white/60 font-light max-w-md">
-                Kein Spezialist für eines — Ihr Partner für alles. Im flexiblen
-                Abo.
+                Kein Hin und Her. Kein Koordinationschaos.
+                <br />
+                Ein Ansprechpartner für alles – flexibel im Abo oder projektbasiert.
               </p>
             </div>
           </div>
@@ -651,14 +668,16 @@ export function ScrollCanvas() {
           position="right"
         >
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[0.95] md:drop-shadow-2xl">
-            WIR
+            LASSEN SIE UNS
             <br />
-            <span className="text-primary">DIGITALISIEREN</span>
+            <span className="text-primary">IDEEN</span> ZUM LEBEN
             <br />
-            IHR BUSINESS.
+            ERWECKEN.
           </h2>
           <p className="mt-5 text-lg md:text-xl text-white/60 font-light max-w-md ml-auto">
-            Foto, Video, Design, Social Media — alles im Abo verfügbar.
+            Wir begleiten Sie als Sparringpartner von der ersten Idee bis zur Umsetzung.
+            Ob Grafik, Design, Foto, Video oder Social Media – wir sorgen dafür, dass Ihre Marke
+            sichtbar wird und professionell auftritt.
           </p>
         </TextOverlay>
 
@@ -680,7 +699,7 @@ export function ScrollCanvas() {
               href="/abo"
               className="inline-flex items-center justify-center bg-primary text-dark font-bold uppercase tracking-wider px-12 py-5 rounded-full text-sm hover:bg-white hover:text-dark transition-all duration-300 shadow-[0_0_40px_rgba(255,209,0,0.3)]"
             >
-              Abo entdecken
+              Jetzt anfragen
             </a>
           </div>
         </TextOverlay>

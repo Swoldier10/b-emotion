@@ -18,7 +18,7 @@ export function ClientLogos() {
       <div className="relative z-10">
         <SlideUp>
           <p className="text-center text-[11px] md:text-xs uppercase tracking-[0.35em] text-white/50 mb-10 font-medium">
-            Vertraut von
+            Kunden, die auf uns setzen
           </p>
         </SlideUp>
 
