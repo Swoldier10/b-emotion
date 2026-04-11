@@ -31,9 +31,15 @@ const iconMap: Record<string, LucideIcon> = {
 export function ServicesGrid({ showHeading = true }: { showHeading?: boolean }) {
   return (
     <section className="relative py-16 md:py-40 px-4 md:px-8 overflow-hidden">
+      {/* Section gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#080808] via-[#050505] to-[#050505] pointer-events-none" />
       {/* Teal ambient glow top-right */}
-      <div className="hidden md:block absolute -top-32 -right-32 w-[500px] h-[500px] bg-teal/[0.03] rounded-full blur-[150px] pointer-events-none" />
-      <div className="max-w-7xl mx-auto">
+      <div className="hidden md:block absolute -top-32 -right-32 w-[600px] h-[600px] bg-teal/[0.06] rounded-full blur-[180px] pointer-events-none" />
+      {/* Primary accent glow — bottom-left */}
+      <div className="hidden md:block absolute -bottom-40 -left-20 w-[400px] h-[400px] bg-primary/[0.03] rounded-full blur-[140px] pointer-events-none" />
+      {/* Decorative angled line — left accent */}
+      <div className="hidden md:block absolute bottom-32 left-[5%] w-[150px] h-[1px] bg-gradient-to-r from-transparent to-primary/15 pointer-events-none rotate-[30deg]" />
+      <div className="relative z-10 max-w-7xl mx-auto">
         {showHeading && (
           <>
             <SectionHeading

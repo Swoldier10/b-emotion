@@ -7,10 +7,14 @@ import { clientProjects } from "@/lib/projects";
 export function ProjectsShowcase() {
   return (
     <section className="relative py-16 md:py-40 px-4 md:px-8 max-w-7xl mx-auto overflow-hidden">
+      {/* Elevated section background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-teal/[0.02] via-transparent to-primary/[0.02] pointer-events-none" />
       {/* Teal ambient glow — top-left */}
-      <div className="hidden md:block absolute -top-40 -left-40 w-[500px] h-[500px] bg-teal/[0.04] rounded-full blur-[150px] pointer-events-none" />
+      <div className="hidden md:block absolute -top-32 -left-32 w-[600px] h-[600px] bg-teal/[0.08] rounded-full blur-[180px] pointer-events-none" />
       {/* Warm accent glow — bottom-right */}
-      <div className="hidden md:block absolute -bottom-20 -right-20 w-[300px] h-[300px] bg-primary/[0.02] rounded-full blur-[120px] pointer-events-none" />
+      <div className="hidden md:block absolute -bottom-20 -right-20 w-[400px] h-[400px] bg-primary/[0.04] rounded-full blur-[140px] pointer-events-none" />
+      {/* Decorative angled line — top-right accent */}
+      <div className="hidden md:block absolute top-20 right-[8%] w-[200px] h-[1px] bg-gradient-to-r from-teal/20 to-transparent pointer-events-none rotate-[-20deg]" />
 
       <div className="relative z-10">
       <SectionHeading

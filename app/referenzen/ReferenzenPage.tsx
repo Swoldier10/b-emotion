@@ -57,7 +57,8 @@ export function ReferenzenPage() {
       />
 
       {/* Client Logos */}
-      <section className="py-16 md:py-24 px-4 md:px-8 max-w-7xl mx-auto">
+      <section className="relative py-16 md:py-24 px-4 md:px-8 max-w-7xl mx-auto overflow-hidden">
+        <div className="hidden md:block absolute top-0 right-[10%] w-[400px] h-[400px] bg-primary/[0.05] rounded-full blur-[160px] pointer-events-none" />
         <StaggerChildren className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {clients.map((client) => (
             <StaggerItem key={client}>
@@ -74,7 +75,8 @@ export function ReferenzenPage() {
       <Testimonials />
 
       {/* Mini Case Studies */}
-      <section className="py-16 md:py-24 px-4 md:px-8 max-w-7xl mx-auto">
+      <section className="relative py-16 md:py-24 px-4 md:px-8 max-w-7xl mx-auto overflow-hidden">
+        <div className="hidden md:block absolute -bottom-20 -left-20 w-[500px] h-[500px] bg-teal/[0.06] rounded-full blur-[180px] pointer-events-none" />
         <SectionHeading title="AUSGEWÄHLTE PROJEKTE" />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {caseStudies.map((cs, i) => (

@@ -14,9 +14,13 @@ export function ClientLogos() {
   const allClients = [...clients, ...clients, ...clients, ...clients];
 
   return (
-    <section className="relative py-20 md:py-28 overflow-hidden bg-gradient-to-b from-[#050505] via-primary/[0.02] to-[#050505]">
-      {/* Gold ambient glow */}
-      <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-primary/[0.03] rounded-full blur-[150px] pointer-events-none" />
+    <section className="relative py-20 md:py-28 overflow-hidden bg-gradient-to-b from-[#050505] via-primary/[0.03] to-[#050505]">
+      {/* Gold ambient glow — center */}
+      <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-primary/[0.06] rounded-full blur-[150px] pointer-events-none" />
+      {/* Teal accent glow — right edge */}
+      <div className="hidden md:block absolute top-0 -right-20 w-[300px] h-[300px] bg-teal/[0.05] rounded-full blur-[120px] pointer-events-none" />
+      {/* Decorative ring — subtle geometric accent */}
+      <div className="hidden md:block absolute top-8 left-[15%] w-[120px] h-[120px] rounded-full border border-primary/[0.06] pointer-events-none" />
 
       <div className="relative z-10">
         <SlideUp>
@@ -53,7 +57,7 @@ export function ClientLogos() {
       </div>
 
       {/* Bottom divider */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-[1px] bg-gradient-to-r from-transparent via-primary/[0.15] to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-[1px] bg-gradient-to-r from-transparent via-primary/20 to-transparent pointer-events-none" />
     </section>
   );
 }

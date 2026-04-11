@@ -59,6 +59,7 @@ export function AboConfigurator() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
 
   const hasSocial = selectedServices.includes("social");
   const totalSteps = hasSocial ? 4 : 3;
@@ -86,9 +87,46 @@ export function AboConfigurator() {
     e.preventDefault();
     if (!contact.name || !contact.company || !contact.email) return;
     setSending(true);
-    await new Promise((r) => setTimeout(r, 1000));
-    setSending(false);
-    setSubmitted(true);
+    setError("");
+
+    try {
+      const serviceLabels = serviceOptions
+        .filter((s) => selectedServices.includes(s.id))
+        .map((s) => s.label);
+
+      const contentLabels = contentTypes
+        .filter((c) => selectedContentType.includes(c.id))
+        .map((c) => c.label);
+
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "abo",
+          name: contact.name,
+          company: contact.company,
+          email: contact.email,
+          phone: contact.phone,
+          preferredContact: contact.preferredContact,
+          services: serviceLabels,
+          socialPosts: hasSocial ? socialPosts : null,
+          contentType: hasSocial ? contentLabels : null,
+          budget,
+          description,
+        }),
+      });
+
+      if (!res.ok) {
+        const body = await res.json();
+        throw new Error(body.error || "Fehler beim Senden.");
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Fehler beim Senden. Bitte versuchen Sie es erneut.");
+    } finally {
+      setSending(false);
+    }
   };
 
   const nextStep = () => {
@@ -391,13 +429,27 @@ export function AboConfigurator() {
                   ))}
                 </div>
               </div>
-              <button
-                type="submit"
-                disabled={sending}
-                className="w-full bg-primary text-dark font-semibold uppercase tracking-wide py-4 rounded-full text-sm hover:bg-primary/90 transition-colors disabled:opacity-60 mt-4"
-              >
-                {sending ? "Wird gesendet..." : "Anfrage senden"}
-              </button>
+              {error && (
+                <p className="text-red-400 text-sm text-center" role="alert">{error}</p>
+              )}
+
+              <div className="flex items-center justify-between mt-6">
+                <button
+                  type="button"
+                  onClick={prevStep}
+                  className="flex items-center gap-1 text-sm text-body-text hover:text-white transition-colors"
+                >
+                  <ChevronLeft size={16} />
+                  Zurück
+                </button>
+                <button
+                  type="submit"
+                  disabled={sending}
+                  className="bg-primary text-dark font-semibold uppercase tracking-wide px-8 py-3 rounded-full text-sm hover:bg-primary/90 transition-colors disabled:opacity-60"
+                >
+                  {sending ? "Wird gesendet..." : "Anfrage senden"}
+                </button>
+              </div>
             </form>
           </motion.div>
         )}

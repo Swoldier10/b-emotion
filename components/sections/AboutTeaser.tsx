@@ -10,7 +10,9 @@ export function AboutTeaser() {
   return (
     <section className="relative py-16 md:py-40 px-4 md:px-8 max-w-7xl mx-auto overflow-hidden">
       {/* Teal ambient glow behind image area */}
-      <div className="hidden md:block absolute top-1/4 -left-32 w-[500px] h-[500px] bg-teal/[0.04] rounded-full blur-[150px] pointer-events-none" />
+      <div className="hidden md:block absolute top-1/4 -left-32 w-[600px] h-[600px] bg-teal/[0.07] rounded-full blur-[180px] pointer-events-none" />
+      {/* Warm accent glow — right side */}
+      <div className="hidden md:block absolute bottom-1/4 -right-20 w-[350px] h-[350px] bg-primary/[0.03] rounded-full blur-[120px] pointer-events-none" />
       <SectionHeading title="ÜBER MICH" align="left" />
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         <ParallaxSection offset={30}>

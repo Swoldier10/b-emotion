@@ -4,7 +4,6 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { PageHero } from "@/components/ui/PageHero";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { ContactForm } from "@/components/forms/ContactForm";
 import { AboConfigurator } from "@/components/forms/AboConfigurator";
 import { FadeIn } from "@/components/animations/FadeIn";
 import {
@@ -18,8 +17,6 @@ import {
   MessageCircle,
   ChevronDown,
   CheckCircle,
-  MessageSquare,
-  Settings,
 } from "lucide-react";
 import { socialLinks } from "@/components/ui/SocialIcons";
 
@@ -55,10 +52,7 @@ const faqs = [
   },
 ];
 
-type Tab = "kontakt" | "abo";
-
-export function KontaktPage({ defaultTab = "kontakt" }: { defaultTab?: Tab }) {
-  const [activeTab, setActiveTab] = useState<Tab>(defaultTab);
+export function KontaktPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const breadcrumbLd = {
@@ -89,86 +83,17 @@ export function KontaktPage({ defaultTab = "kontakt" }: { defaultTab?: Tab }) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <PageHero
         title="LASSEN SIE UNS STARTEN"
-        subtitle="Allgemeine Anfrage oder Abo konfigurieren — Sie entscheiden."
+        subtitle="Konfigurieren Sie Ihr massgeschneidertes Abo — flexibel und ohne Mindestlaufzeit."
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Kontakt" }]}
       />
 
-      <section className="py-8 md:py-16 px-4 md:px-8 max-w-7xl mx-auto">
+      <section className="relative py-8 md:py-16 px-4 md:px-8 max-w-7xl mx-auto overflow-hidden">
+        <div className="hidden md:block absolute -top-20 -left-20 w-[500px] h-[500px] bg-teal/[0.05] rounded-full blur-[180px] pointer-events-none" />
+        <div className="hidden md:block absolute bottom-1/3 -right-20 w-[400px] h-[400px] bg-primary/[0.03] rounded-full blur-[140px] pointer-events-none" />
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-8 lg:gap-12">
-          {/* Left: Tabbed form area */}
+          {/* Left: Abo Configurator */}
           <div>
-            {/* Tab selector */}
-            <div className="flex gap-2 mb-8" role="tablist" aria-label="Kontakt-Optionen">
-              <button
-                onClick={() => setActiveTab("kontakt")}
-                role="tab"
-                id="tab-kontakt"
-                aria-selected={activeTab === "kontakt"}
-                aria-controls="panel-kontakt"
-                className={`flex items-center gap-2 px-5 py-3 rounded-full text-sm font-semibold uppercase tracking-wide border transition-all ${
-                  activeTab === "kontakt"
-                    ? "bg-primary text-dark border-primary"
-                    : "border-white/15 text-white/60 hover:border-white/30 hover:text-white"
-                }`}
-              >
-                <MessageSquare size={16} />
-                Anfrage senden
-              </button>
-              <button
-                onClick={() => setActiveTab("abo")}
-                role="tab"
-                id="tab-abo"
-                aria-selected={activeTab === "abo"}
-                aria-controls="panel-abo"
-                className={`flex items-center gap-2 px-5 py-3 rounded-full text-sm font-semibold uppercase tracking-wide border transition-all ${
-                  activeTab === "abo"
-                    ? "bg-primary text-dark border-primary"
-                    : "border-white/15 text-white/60 hover:border-white/30 hover:text-white"
-                }`}
-              >
-                <Settings size={16} />
-                Abo konfigurieren
-              </button>
-            </div>
-
-            {/* Tab content */}
-            <AnimatePresence mode="wait">
-              {activeTab === "kontakt" && (
-                <motion.div
-                  key="kontakt"
-                  id="panel-kontakt"
-                  role="tabpanel"
-                  aria-labelledby="tab-kontakt"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.25 }}
-                >
-                  <ContactForm />
-                </motion.div>
-              )}
-              {activeTab === "abo" && (
-                <motion.div
-                  key="abo"
-                  id="panel-abo"
-                  role="tabpanel"
-                  aria-labelledby="tab-abo"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.25 }}
-                >
-                  <FadeIn>
-                    <p className="text-body-text text-sm leading-relaxed mb-6">
-                      Wählen Sie die Leistungen, die Sie benötigen, und
-                      konfigurieren Sie Ihr massgeschneidertes Abo. Flexibel,
-                      ohne Mindestlaufzeit.
-                    </p>
-                  </FadeIn>
-                  <AboConfigurator />
-                </motion.div>
-              )}
-            </AnimatePresence>
+            <AboConfigurator />
           </div>
 
           {/* Right: Contact info sidebar */}
@@ -240,7 +165,10 @@ export function KontaktPage({ defaultTab = "kontakt" }: { defaultTab?: Tab }) {
       </section>
 
       {/* Benefits */}
-      <section className="py-16 md:py-24 px-4 md:px-8 max-w-7xl mx-auto">
+      <section className="relative py-16 md:py-24 px-4 md:px-8 max-w-7xl mx-auto overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#080808] via-[#050505] to-[#050505] pointer-events-none" />
+        <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-primary/[0.04] rounded-full blur-[150px] pointer-events-none" />
+        <div className="relative z-10">
         <SectionHeading title="WARUM B-EMOTION?" />
         <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {benefits.map((b) => (
@@ -252,6 +180,7 @@ export function KontaktPage({ defaultTab = "kontakt" }: { defaultTab?: Tab }) {
             </StaggerItem>
           ))}
         </StaggerChildren>
+        </div>
       </section>
 
       {/* FAQ */}

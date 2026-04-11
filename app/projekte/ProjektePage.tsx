@@ -33,7 +33,10 @@ export function ProjektePage() {
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Projekte" }]}
       />
 
-      <section className="py-8 px-4 md:px-8 max-w-7xl mx-auto">
+      <section className="relative py-8 px-4 md:px-8 max-w-7xl mx-auto overflow-hidden">
+        <div className="hidden md:block absolute -top-32 -left-32 w-[500px] h-[500px] bg-teal/[0.06] rounded-full blur-[180px] pointer-events-none" />
+        <div className="hidden md:block absolute bottom-1/4 -right-20 w-[400px] h-[400px] bg-primary/[0.03] rounded-full blur-[140px] pointer-events-none" />
+        <div className="relative z-10">
         <div className="flex flex-wrap gap-2 mb-12">
           {categories.map((cat) => (
             <button
@@ -126,6 +129,7 @@ export function ProjektePage() {
               </Link>
             </FadeIn>
           ))}
+        </div>
         </div>
       </section>
     </>

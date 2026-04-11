@@ -72,7 +72,8 @@ export function UeberMichPage() {
       />
 
       {/* Personal Introduction */}
-      <section className="py-16 md:py-24 px-4 md:px-8 max-w-7xl mx-auto">
+      <section className="relative py-16 md:py-24 px-4 md:px-8 max-w-7xl mx-auto overflow-hidden">
+        <div className="hidden md:block absolute -top-20 -right-20 w-[500px] h-[500px] bg-teal/[0.06] rounded-full blur-[180px] pointer-events-none" />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <ParallaxSection offset={30}>
             <div className="max-w-[280px] sm:max-w-xs md:max-w-sm lg:max-w-md mx-auto lg:mx-0">
@@ -124,7 +125,10 @@ export function UeberMichPage() {
       </section>
 
       {/* Values */}
-      <section className="py-16 md:py-24 px-4 md:px-8 max-w-7xl mx-auto">
+      <section className="relative py-16 md:py-24 px-4 md:px-8 max-w-7xl mx-auto overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#080808] via-[#050505] to-[#050505] pointer-events-none" />
+        <div className="hidden md:block absolute -bottom-32 -left-20 w-[400px] h-[400px] bg-primary/[0.04] rounded-full blur-[150px] pointer-events-none" />
+        <div className="relative z-10">
         <SectionHeading title="WARUM B-EMOTION?" />
         <StaggerChildren className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {values.map((v) => (
@@ -145,10 +149,12 @@ export function UeberMichPage() {
             </StaggerItem>
           ))}
         </StaggerChildren>
+        </div>
       </section>
 
       {/* Process */}
-      <section className="py-16 md:py-24 px-4 md:px-8 max-w-7xl mx-auto">
+      <section className="relative py-16 md:py-24 px-4 md:px-8 max-w-7xl mx-auto overflow-hidden">
+        <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-teal/[0.04] rounded-full blur-[160px] pointer-events-none" />
         <SectionHeading title="SO ARBEITE ICH" />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {timeline.map((step, i) => (

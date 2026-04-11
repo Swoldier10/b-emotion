@@ -15,7 +15,7 @@ export function MarqueeText({
       aria-hidden="true"
     >
       {/* Primary glow behind text */}
-      <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[100px] bg-primary/[0.04] rounded-full blur-[80px] pointer-events-none" />
+      <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[120px] bg-primary/[0.07] rounded-full blur-[80px] pointer-events-none" />
 
       <div
         className="flex whitespace-nowrap"

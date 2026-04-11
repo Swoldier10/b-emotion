@@ -32,9 +32,13 @@ export function PageHero({
 
   return (
     <section
-      className={`${heights[height]} flex flex-col justify-end px-4 md:px-8 pt-24 md:pt-32 pb-8 md:pb-12`}
+      className={`${heights[height]} relative flex flex-col justify-end px-4 md:px-8 pt-24 md:pt-32 pb-8 md:pb-12 overflow-hidden`}
     >
-      <div className="max-w-7xl mx-auto w-full text-center">
+      {/* Ambient glows */}
+      <div className="hidden md:block absolute top-0 left-1/4 w-[500px] h-[400px] bg-teal/[0.05] rounded-full blur-[180px] pointer-events-none" />
+      <div className="hidden md:block absolute bottom-0 right-1/4 w-[400px] h-[300px] bg-primary/[0.03] rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="relative z-10 max-w-7xl mx-auto w-full text-center">
         {breadcrumbs && (
           <FadeIn>
             <nav

@@ -30,12 +30,16 @@ export function HomeFAQ() {
 
   return (
     <div className="relative overflow-hidden">
+      {/* Subtle gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/[0.02] to-transparent pointer-events-none" />
       {/* Gold ambient glow — top-right */}
-      <div className="hidden md:block absolute top-0 right-[10%] w-[400px] h-[400px] bg-primary/[0.03] rounded-full blur-[150px] pointer-events-none" />
+      <div className="hidden md:block absolute top-0 right-[10%] w-[500px] h-[500px] bg-primary/[0.06] rounded-full blur-[180px] pointer-events-none" />
       {/* Teal accent glow — bottom-left */}
-      <div className="hidden md:block absolute bottom-0 left-[10%] w-[300px] h-[300px] bg-teal/[0.02] rounded-full blur-[100px] pointer-events-none" />
+      <div className="hidden md:block absolute bottom-0 left-[10%] w-[400px] h-[400px] bg-teal/[0.04] rounded-full blur-[120px] pointer-events-none" />
       {/* Top divider */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-[1px] bg-gradient-to-r from-transparent via-teal/[0.12] to-transparent pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-[1px] bg-gradient-to-r from-transparent via-teal/20 to-transparent pointer-events-none" />
+      {/* Decorative ring — bottom-right */}
+      <div className="hidden md:block absolute bottom-16 right-[12%] w-[80px] h-[80px] rounded-full border border-teal/[0.08] pointer-events-none" />
 
     <section className="relative z-10 py-16 md:py-24 px-4 md:px-8 max-w-3xl mx-auto">
       <SectionHeading title="HÄUFIGE FRAGEN" />
