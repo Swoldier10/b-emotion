@@ -55,6 +55,9 @@ export function AboTeaser() {
                 <br />
                 IM ABO.
               </h2>
+              <p className="mt-3 text-dark/50 text-base md:text-lg font-bold uppercase tracking-wide">
+                Flexibel und skalierbar
+              </p>
               <p className="mt-8 text-dark/60 text-lg max-w-lg mx-auto lg:mx-0 leading-relaxed">
                 Nicht ein Spezialist — sondern Ihr kompletter Marketing-Partner.
                 Durch die Zusammenarbeit mit b-emotion profitieren kleine
@@ -64,26 +67,26 @@ export function AboTeaser() {
               </p>
               <div className="mt-10">
                 <Link
-                  href="/kontakt"
+                  href="/abo"
                   className="inline-flex items-center justify-center bg-dark text-white font-bold uppercase tracking-wider px-10 py-4 rounded-full text-sm hover:bg-black transition-colors"
                 >
-                  Jetzt starten
+                  Jetzt Abo konfigurieren
                 </Link>
               </div>
             </FadeIn>
           </div>
 
           <div className="lg:col-span-2 flex items-center justify-center">
-            <StaggerChildren className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            <StaggerChildren className="grid grid-cols-2 sm:grid-cols-3 gap-4">
               {aboServices.map((svc) => (
                 <StaggerItem key={svc.label}>
-                  <div className="bg-dark/[0.08] rounded-2xl p-4 md:p-5 text-center border border-dark/[0.06] hover:bg-dark/[0.12] transition-colors duration-300 h-full flex flex-col items-center justify-center">
+                  <div className="bg-dark/[0.12] rounded-2xl p-6 md:p-8 text-center border border-dark/[0.10] hover:bg-dark/[0.18] transition-colors duration-300 h-full flex flex-col items-center justify-center">
                     <svc.icon
-                      size={28}
-                      strokeWidth={1.2}
-                      className="text-dark/60 mb-2"
+                      size={36}
+                      strokeWidth={1.3}
+                      className="text-dark/80 mb-3"
                     />
-                    <p className="text-dark/70 text-[11px] md:text-xs font-bold uppercase tracking-wider">
+                    <p className="text-dark/80 text-xs md:text-sm font-bold uppercase tracking-wider">
                       {svc.label}
                     </p>
                   </div>

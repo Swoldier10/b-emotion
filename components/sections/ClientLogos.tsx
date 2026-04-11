@@ -14,7 +14,10 @@ export function ClientLogos() {
   const allClients = [...clients, ...clients, ...clients, ...clients];
 
   return (
-    <section className="relative py-20 md:py-28 overflow-hidden bg-[#050505]">
+    <section className="relative py-20 md:py-28 overflow-hidden bg-gradient-to-b from-[#050505] via-primary/[0.02] to-[#050505]">
+      {/* Gold ambient glow */}
+      <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-primary/[0.03] rounded-full blur-[150px] pointer-events-none" />
+
       <div className="relative z-10">
         <SlideUp>
           <p className="text-center text-[11px] md:text-xs uppercase tracking-[0.35em] text-white/50 mb-10 font-medium">
@@ -48,6 +51,9 @@ export function ClientLogos() {
           </div>
         </div>
       </div>
+
+      {/* Bottom divider */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-[1px] bg-gradient-to-r from-transparent via-primary/[0.15] to-transparent pointer-events-none" />
     </section>
   );
 }

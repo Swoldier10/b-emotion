@@ -96,6 +96,8 @@ export default function HomePage() {
 
         <div className="bg-[#050505]">
           <ClientLogos />
+          {/* Transition divider: gold → teal */}
+          <div className="h-[2px] mx-auto w-1/3 bg-gradient-to-r from-primary/[0.15] via-transparent to-teal/[0.15] pointer-events-none" />
           <ServicesGrid />
           <AboTeaser />
           <ProjectsShowcase />

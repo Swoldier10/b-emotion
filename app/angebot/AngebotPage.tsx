@@ -41,9 +41,6 @@ export function AngebotPage() {
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Angebot" }]}
       />
       <ServicesGrid showHeading={false} />
-      <FadeIn className="text-center pb-20">
-        <MagneticButton href="/abo">Jetzt Abo konfigurieren</MagneticButton>
-      </FadeIn>
       <CtaBanner />
     </>
   );

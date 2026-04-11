@@ -14,16 +14,15 @@ export function CtaBanner() {
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 md:px-8 text-center">
         <TextReveal
-          text="LASSEN SIE UNS GEMEINSAM IDEEN ZUM LEBEN ERWECKEN."
+          text="NEUGIERIG AUF MEHR?"
           as="h2"
           className="text-2xl md:text-5xl lg:text-6xl font-black text-white leading-[1.05]"
         />
 
         <FadeIn delay={0.3}>
           <p className="mt-8 text-body-text text-lg md:text-xl leading-relaxed max-w-2xl mx-auto font-light">
-            Ich bin Ihr Sparring-Partner für die Verwirklichung Ihrer Visionen —
-            von Grafik- und Designaufgaben über Foto- und Videoproduktion bis
-            hin zur Betreuung Ihrer Social-Media-Kanäle.
+            Dann lass uns gemeinsam schauen, was für dich Sinn macht –
+            unkompliziert und ohne Verpflichtung.
           </p>
         </FadeIn>
 

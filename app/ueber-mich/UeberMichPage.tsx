@@ -75,14 +75,16 @@ export function UeberMichPage() {
       <section className="py-16 md:py-24 px-4 md:px-8 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <ParallaxSection offset={30}>
-            <div className="aspect-[3/4] bg-dark rounded-xl overflow-hidden relative">
-              <Image
-                src="/images/marc-baumann.avif"
-                alt="Marc Baumann — Inhaber von b-emotion"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 40vw"
-              />
+            <div className="max-w-[280px] sm:max-w-xs md:max-w-sm lg:max-w-md mx-auto lg:mx-0">
+              <div className="aspect-[3/4] bg-dark rounded-xl overflow-hidden relative">
+                <Image
+                  src="/images/marc-baumann.avif"
+                  alt="Marc Baumann — Inhaber von b-emotion"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 40vw"
+                />
+              </div>
             </div>
           </ParallaxSection>
 

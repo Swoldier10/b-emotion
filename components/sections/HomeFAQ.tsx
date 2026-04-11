@@ -29,7 +29,15 @@ export function HomeFAQ() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <section className="py-16 md:py-24 px-4 md:px-8 max-w-3xl mx-auto">
+    <div className="relative overflow-hidden">
+      {/* Gold ambient glow — top-right */}
+      <div className="hidden md:block absolute top-0 right-[10%] w-[400px] h-[400px] bg-primary/[0.03] rounded-full blur-[150px] pointer-events-none" />
+      {/* Teal accent glow — bottom-left */}
+      <div className="hidden md:block absolute bottom-0 left-[10%] w-[300px] h-[300px] bg-teal/[0.02] rounded-full blur-[100px] pointer-events-none" />
+      {/* Top divider */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-[1px] bg-gradient-to-r from-transparent via-teal/[0.12] to-transparent pointer-events-none" />
+
+    <section className="relative z-10 py-16 md:py-24 px-4 md:px-8 max-w-3xl mx-auto">
       <SectionHeading title="HÄUFIGE FRAGEN" />
       <div className="space-y-3">
         {faqs.map((faq, i) => (
@@ -78,5 +86,6 @@ export function HomeFAQ() {
         ))}
       </div>
     </section>
+    </div>
   );
 }
